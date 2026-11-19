@@ -32,3 +32,98 @@
 
 </body>
 </html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FCF9F2;
+    font-family: 'Lora', serif;
+    color: #7A1212;
+    display: flex;
+    justify-content: center;
+    padding: 24px 16px 48px;
+}
+
+.page {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-banner {
+    width: 100%;
+    background-color: #7A1212;
+    border-radius: 22px;
+    padding: 34px 28px 28px;
+    text-align: center;
+}
+
+.banner-title {
+    color: #D8AD43;
+    font-size: clamp(1.1rem, 2.6vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.banner-logo {
+    width: 115px;
+    max-width: 35%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.center-art {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 44px 0 36px;
+}
+
+.hero-illustration {
+    width: 310px;
+    max-width: 78%;
+    height: auto;
+    display: block;
+}
+
+.signature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.by-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #7A1212;
+    color: #D8AD43;
+    font-style: italic;
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.author {
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #7A1212;
+    line-height: 1.2;
+}
+
+.role {
+    font-size: 1.05rem;
+    color: #7A1212;
+    line-height: 1.3;
+}
