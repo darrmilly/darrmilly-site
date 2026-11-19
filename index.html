@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darrmilly</title>
+    <title>Darrmilly — Visual Quotes, Digital Design &amp; Relaxing Music</title>
+    <meta name="description" content="Darrmilly by Maria Dunn. Visual Quotes, Digital Design &amp; soothing ambient and light jazz music for sleep, meditation, reading, and study.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
@@ -151,13 +151,21 @@
             color: #7A1212;
             line-height: 1.3;
         }
+
+        .sub-note {
+            font-size: 0.92rem;
+            font-style: italic;
+            color: #7A1212;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
 
     <div class="top-bar" role="group" aria-label="Language switcher">
-        <button type="button" class="lang-btn active" data-lang="en">English</button>
-        <button type="button" class="lang-btn" data-lang="es">Español</button>
+        <button type="button" id="btnEn" class="lang-btn active" onclick="cambiarIdioma('en')">English</button>
+        <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
     </div>
 
     <header class="wave-banner">
@@ -169,68 +177,49 @@
 
     <main class="main-content">
         <section class="center-art">
-            <img src="ilustracion.png" alt="Ilustración de mujer en sillón" class="hero-illustration">
+            <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
         </section>
 
         <footer class="signature">
             <span class="by-circle" id="byBadge">by</span>
             <div class="signature-text">
                 <p class="author">MARIA DUNN</p>
-                <p class="role" id="roleText">Visual Quotes &amp; Digital Design</p>
+                <p class="role" id="roleText">Visual Quotes, Digital Design &amp; Relaxing Music</p>
+                <p class="sub-note" id="subNote">Soothing sounds &amp; light jazz for sleep, meditation, reading, and study</p>
             </div>
         </footer>
     </main>
 
     <script>
-        const translations = {
-            en: {
-                htmlLang: "en",
-                bannerTitle: "WELCOME TO DARRMILLY",
-                byBadge: "by",
-                roleText: "Visual Quotes & Digital Design"
-            },
-            es: {
-                htmlLang: "es",
-                bannerTitle: "WELCOME TO DARRMILLY",
-                byBadge: "por",
-                roleText: "Frases Visuales y Diseño Digital"
-            }
-        };
+        function cambiarIdioma(lang) {
+            var esEspañol = (lang === 'es');
 
-        const buttons = document.querySelectorAll(".lang-btn");
-        const bannerTitle = document.getElementById("bannerTitle");
-        const byBadge = document.getElementById("byBadge");
-        const roleText = document.getElementById("roleText");
-        const mainIllustration = document.querySelector(".hero-illustration");
+            document.documentElement.lang = esEspañol ? 'es' : 'en';
+            document.getElementById('byBadge').textContent = esEspañol ? 'por' : 'by';
+            document.getElementById('roleText').textContent = esEspañol
+                ? 'Frases Visuales, Diseño Digital y Música Relajante'
+                : 'Visual Quotes, Digital Design & Relaxing Music';
+            document.getElementById('subNote').textContent = esEspañol
+                ? 'Sonidos suaves y jazz ligero para dormir, meditar, leer y estudiar'
+                : 'Soothing sounds & light jazz for sleep, meditation, reading, and study';
+            document.getElementById('mainIllustration').alt = esEspañol
+                ? 'Ilustración de mujer en sillón con taza'
+                : 'Illustration of a woman sitting with a cup';
 
-        function setLanguage(lang) {
-            const t = translations[lang] || translations.en;
-            document.documentElement.lang = t.htmlLang;
-            bannerTitle.textContent = t.bannerTitle;
-            byBadge.textContent = t.byBadge;
-            roleText.textContent = t.roleText;
-            mainIllustration.alt = lang === "en"
-                ? "Illustration of a woman sitting with a cup"
-                : "Ilustración de mujer en sillón";
-
-            buttons.forEach((btn) => {
-                btn.classList.toggle("active", btn.dataset.lang === lang);
-            });
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
 
             try {
-                localStorage.setItem("darrmilly_lang", lang);
+                localStorage.setItem('darrmilly_lang', lang);
             } catch (e) {}
         }
 
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
-        });
-
-        let savedLang = "en";
         try {
-            savedLang = localStorage.getItem("darrmilly_lang") || "en";
+            var guardado = localStorage.getItem('darrmilly_lang');
+            if (guardado === 'es' || guardado === 'en') {
+                cambiarIdioma(guardado);
+            }
         } catch (e) {}
-        setLanguage(savedLang);
     </script>
 
 </body>
