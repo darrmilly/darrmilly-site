@@ -1,185 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DarrMilly Studio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DarrMilly Studio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  background-color: #fbf5ee;
-  font-family: 'Lora', Georgia, 'Times New Roman', serif;
-  padding: 40px 20px;
-  min-height: 100vh;
-}
+    body {
+      background-color: #FAF5EF;
+      font-family: 'Georgia', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 15px;
+    }
 
-.container { max-width: 1000px; margin: 0 auto; }
+    .container {
+      max-width: 480px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-.hero-banner {
-  background-color: #940808;
-  border-radius: 28px;
-  padding: 36px 20px 30px;
-  text-align: center;
-}
+    .hero-banner {
+      background-color: #801313;
+      border-radius: 24px;
+      padding: 32px 20px 26px 20px;
+      width: 100%;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
 
-.hero-banner h1 {
-  color: #C9A227;
-  font-family: 'Lora', Georgia, serif;
-  font-weight: 400;
-  font-size: clamp(1.4rem, 4.6vw, 2.8rem);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
+    .hero-banner h1 {
+      color: #D4AF37;
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      font-weight: normal;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      font-family: 'Times New Roman', Times, serif;
+    }
 
-.logo-dm { height: 70px; width: auto; display: block; margin: 0 auto; }
+    /* Tu imagen exacta del logo DM */
+    .logo-img {
+      max-width: 110px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-.profile-section {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 15%;
-  margin-top: 50px;
-  position: relative;
-}
+    .illustration-container {
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: center;
+    }
 
-.profile-section .author-info { position: absolute; left: 45%; top: 50%; transform: translateY(-50%); }
+    .illustration {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+    }
 
-.illustration { width: 21%; min-width: 190px; height: auto; }
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
 
-.author-info { display: flex; align-items: center; gap: 14px; text-align: left; }
+    .by-badge {
+      background-color: #801313;
+      color: #D4AF37;
+      font-style: italic;
+      font-size: 1.1rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-.by-badge {
-  background-color: #940808;
-  color: #C9A227;
-  font-family: 'Lora', Georgia, serif;
-  font-style: italic;
-  font-size: 1.3rem;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
+    .author-text h2 {
+      color: #801313;
+      font-size: 1.2rem;
+      font-weight: normal;
+      letter-spacing: 1px;
+    }
 
-.author-text h2 { color: #940808; font-weight: 400; font-size: 1.5rem; letter-spacing: 1px; }
-.author-text p  { color: #940808; font-size: 1rem; margin-top: 2px; }
-
-/* Ajustes para celular */
-@media (max-width: 700px) {
-  body {
-    padding: 20px 15px;
-  }
-
-  .hero-banner {
-    padding: 28px 15px 24px;
-    border-radius: 22px;
-  }
-
-  .hero-banner h1 {
-    font-size: clamp(1.1rem, 4.3vw, 1.6rem);
-    margin-bottom: 14px;
-  }
-
-  .logo-dm {
-    height: 55px;
-  }
-
-  .profile-section {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-left: 0;
-    margin-top: 32px;
-    gap: 20px;
-  }
-
-  .illustration {
-    width: 55%;
-    max-width: 220px;
-    min-width: 160px;
-  }
-
-  .profile-section .author-info {
-    position: static;
-    transform: none;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .by-badge {
-    width: 42px;
-    height: 42px;
-    font-size: 1.15rem;
-  }
-
-  .author-text h2 {
-    font-size: 1.25rem;
-  }
-
-  .author-text p {
-    font-size: 0.85rem;
-  }
-}
-</style>
+    .author-text p {
+      color: #801313;
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+  </style>
 </head>
 <body>
+
   <div class="container">
     <div class="hero-banner">
-      <h1>Welcome to <span id="nombre">DarrMilly</span> Studio</h1>
-      <img class="logo-dm" src="logo-dm.png" alt="Logo DM">
+      <h1>WELCOME TO DARRMILLY STUDIO</h1>
+      <!-- Reemplaza logo-dm.png con el nombre exacto de tu archivo de logo -->
+      <img src="logo-dm.png" alt="Logo DM DarrMilly Studio" class="logo-img">
     </div>
 
-    <div class="profile-section">
-      <img class="illustration" src="ilustracion.png" alt="Ilustración de una mujer sentada tomando café">
-      <div class="author-info">
-        <div class="by-badge">by</div>
-        <div class="author-text">
-          <h2>MARIA DUNN</h2>
-          <p>Visual Quotes &amp; Digital Design</p>
-        </div>
+    <div class="illustration-container">
+      <!-- Si tienes el archivo de la chica, descomenta la línea de abajo y pon su nombre exacto -->
+      <!-- <img src="chica-cafe.png" alt="DarrMilly Illustration" class="illustration"> -->
+    </div>
+
+    <div class="author-info">
+      <div class="by-badge">by</div>
+      <div class="author-text">
+        <h2>MARIA DUNN</h2>
+        <p>Visual Quotes & Digital Design</p>
       </div>
     </div>
   </div>
 
-<script>
-function alinear() {
-  var n = document.getElementById('nombre');
-  var p = document.querySelector('.profile-section');
-  var a = p.querySelector('.author-info');
-  if (window.innerWidth <= 700) { a.style.left = ''; return; }
-  a.style.left = (n.getBoundingClientRect().left - p.getBoundingClientRect().left) + 'px';
-}
-window.addEventListener('load', alinear);
-window.addEventListener('resize', alinear);
-if (document.fonts && document.fonts.ready) { document.fonts.ready.then(alinear); }
-</script>
 </body>
-</html><!-- SEGUNDA SECCIÓN: PORTAFOLIO / QUOTES -->
-    <section class="portfolio-section">
-      <div class="section-header">
-        <h2>I WAS MADE TO BUILD</h2>
-        <p>Visual Quotes &amp; Digital Design</p>
-      </div>
-
-      <div class="frames-grid">
-        <!-- Marco izquierdo: Imagen / Quote estática -->
-        <div class="media-frame frame-card">
-          <img src="imagen-reflexion.png" alt="Reflexión para hoy">
-        </div>
-
-        <!-- Marco derecho: Video / Reel -->
-        <div class="media-frame frame-phone">
-          <video controls poster="portada-video.png">
-            <source src="video-reflexion.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
-          </video>
-        </div>
-      </div>
-    </section>
+</html>
+ 
