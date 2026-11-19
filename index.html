@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><h1 class="banner-title" id="bannerTitle">WELCOME TO DARRMILLY</h1></title>
+    <title>Darrmilly</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
@@ -30,6 +30,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        .lang-bar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .lang-btn {
+            font-family: 'Lora', serif;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: transparent;
+            color: #7A1212;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background-color: #7A1212;
+            color: #D8AD43;
         }
 
         .top-banner {
@@ -109,8 +135,13 @@
 <body>
 
     <main class="page">
+        <div class="lang-bar" role="group" aria-label="Language switcher">
+            <button type="button" class="lang-btn" data-lang="en">English</button>
+            <button type="button" class="lang-btn active" data-lang="es">Español</button>
+        </div>
+
         <header class="top-banner">
-            <h1 class="banner-title">WELCOME TO DARRMILLY STUDIO</h1>
+            <h1 class="banner-title" id="bannerTitle">WELCOME TO DARRMILLY</h1>
             <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
         </header>
 
@@ -119,13 +150,66 @@
         </section>
 
         <footer class="signature">
-            <span class="by-circle">by</span>
+            <span class="by-circle" id="byBadge">by</span>
             <div class="signature-text">
                 <p class="author">MARIA DUNN</p>
-                <p class="role">Visual Quotes &amp; Digital Design</p>
+                <p class="role" id="roleText">Visual Quotes &amp; Digital Design</p>
             </div>
         </footer>
     </main>
 
+    <script>
+        const translations = {
+            es: {
+                htmlLang: "es",
+                bannerTitle: "BIENVENIDO A DARRMILLY",
+                byBadge: "por",
+                roleText: "Frases Visuales y Diseño Digital"
+            },
+            en: {
+                htmlLang: "en",
+                bannerTitle: "WELCOME TO DARRMILLY",
+                byBadge: "by",
+                roleText: "Visual Quotes & Digital Design"
+            }
+        };
+
+        const buttons = document.querySelectorAll(".lang-btn");
+        const bannerTitle = document.getElementById("bannerTitle");
+        const byBadge = document.getElementById("byBadge");
+        const roleText = document.getElementById("roleText");
+        const mainIllustration = document.querySelector(".hero-illustration");
+
+        function setLanguage(lang) {
+            const t = translations[lang] || translations.es;
+            document.documentElement.lang = t.htmlLang;
+            bannerTitle.textContent = t.bannerTitle;
+            byBadge.textContent = t.byBadge;
+            roleText.textContent = t.roleText;
+            mainIllustration.alt = lang === "en"
+                ? "Illustration of a woman sitting with a cup"
+                : "Ilustración de mujer en sillón";
+
+            buttons.forEach((btn) => {
+                btn.classList.toggle("active", btn.dataset.lang === lang);
+            });
+
+            try {
+                localStorage.setItem("darrmilly_lang", lang);
+            } catch (e) {}
+        }
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+        });
+
+        let savedLang = "es";
+        try {
+            savedLang = localStorage.getItem("darrmilly_lang") || "es";
+        } catch (e) {}
+        setLanguage(savedLang);
+    </script>
+
 </body>
 </html>
+
