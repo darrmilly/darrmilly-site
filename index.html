@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,34 +15,29 @@
         }
 
         body {
-            background-color: #FCF9F2;
+            background-color: #F6EFE6;
             font-family: 'Lora', serif;
             color: #7A1212;
             display: flex;
-            justify-content: center;
-            padding: 24px 16px 48px;
-        }
-
-        .page {
-            width: 100%;
-            max-width: 760px;
-            display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
-        .lang-bar {
+        /* Barra superior de idiomas */
+        .top-bar {
             width: 100%;
+            max-width: 900px;
             display: flex;
             justify-content: flex-end;
-            gap: 8px;
-            margin-bottom: 14px;
+            gap: 10px;
+            padding: 12px 24px 8px;
         }
 
         .lang-btn {
             font-family: 'Lora', serif;
             font-size: 0.9rem;
-            padding: 6px 14px;
+            padding: 5px 15px;
             border-radius: 999px;
             border: 1.5px solid #7A1212;
             background-color: transparent;
@@ -55,38 +49,72 @@
         .lang-btn.active,
         .lang-btn:hover {
             background-color: #7A1212;
-            color: #D8AD43;
+            color: #E2B857;
         }
 
-        .top-banner {
+        /* Banner con ondas en rojo vino y dorado */
+        .wave-banner {
+            position: relative;
             width: 100%;
-            background-color: #7A1212;
-            border-radius: 22px;
-            padding: 34px 28px 28px;
+            max-width: 900px;
+            min-height: 230px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            padding: 36px 20px 58px;
+        }
+
+        .wave-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .banner-title {
-            color: #D8AD43;
-            font-size: clamp(1.1rem, 2.6vw, 2rem);
+            color: #DFB14B;
+            font-size: clamp(1.25rem, 3.1vw, 2.25rem);
             font-weight: 400;
             letter-spacing: 2px;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
         }
 
         .banner-logo {
-            width: 115px;
-            max-width: 35%;
+            width: 105px;
+            max-width: 32%;
             height: auto;
             display: block;
-            margin: 0 auto;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+        }
+
+        /* Contenedor inferior */
+        .main-content {
+            width: 100%;
+            max-width: 760px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 16px 48px;
         }
 
         .center-art {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 44px 0 36px;
+            margin: 18px 0 36px;
         }
 
         .hero-illustration {
@@ -108,7 +136,7 @@
             height: 48px;
             border-radius: 50%;
             background-color: #7A1212;
-            color: #D8AD43;
+            color: #DFB14B;
             font-style: italic;
             font-size: 1.2rem;
             display: inline-flex;
@@ -134,17 +162,57 @@
 </head>
 <body>
 
-    <main class="page">
-        <div class="lang-bar" role="group" aria-label="Language switcher">
-            <button type="button" class="lang-btn" data-lang="en">English</button>
-            <button type="button" class="lang-btn active" data-lang="es">Español</button>
-        </div>
+    <div class="top-bar" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn active" data-lang="en">English</button>
+        <button type="button" class="lang-btn" data-lang="es">Español</button>
+    </div>
 
-        <header class="top-banner">
+    <header class="wave-banner">
+        <!-- Fondo SVG con ondas en rojo vino, dorado y crema -->
+        <svg class="wave-bg" viewBox="0 0 900 250" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+                <linearGradient id="wineDeep" x1="0%" y1="0%" x2="100%" y2="85%">
+                    <stop offset="0%" stop-color="#3E080A" />
+                    <stop offset="48%" stop-color="#6F1013" />
+                    <stop offset="100%" stop-color="#8B1518" />
+                </linearGradient>
+                <linearGradient id="wineWave" x1="0%" y1="20%" x2="100%" y2="70%">
+                    <stop offset="0%" stop-color="#580C0F" stop-opacity="0.9" />
+                    <stop offset="55%" stop-color="#8D181B" stop-opacity="0.85" />
+                    <stop offset="100%" stop-color="#4A090B" stop-opacity="0.95" />
+                </linearGradient>
+                <linearGradient id="goldRibbon" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#B98A32" />
+                    <stop offset="35%" stop-color="#F5DC93" />
+                    <stop offset="65%" stop-color="#D4A646" />
+                    <stop offset="85%" stop-color="#F7E3A6" />
+                    <stop offset="100%" stop-color="#B3822B" />
+                </linearGradient>
+            </defs>
+
+            <!-- Base crema inferior -->
+            <rect width="900" height="250" fill="#EAE0D3" />
+
+            <!-- Sombra suave de onda crema inferior -->
+            <path d="M0,185 C260,150 560,175 900,235 L900,250 L0,250 Z" fill="#F6EFE6" />
+
+            <!-- Cuerpo principal guinda con curva inferior -->
+            <path d="M0,0 L900,0 L900,228 C640,175 290,215 0,150 Z" fill="url(#wineDeep)" />
+
+            <!-- Onda satinada intermedia -->
+            <path d="M0,38 C220,95 540,10 900,72 L900,195 C610,145 310,185 0,112 Z" fill="url(#wineWave)" />
+
+            <!-- Cinta dorada luminosa siguiendo el borde de la ola -->
+            <path d="M-10,76 C240,165 560,175 910,234 L910,244 C560,186 240,176 -10,87 Z" fill="url(#goldRibbon)" />
+        </svg>
+
+        <div class="banner-content">
             <h1 class="banner-title" id="bannerTitle">WELCOME TO DARRMILLY</h1>
             <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
-        </header>
+        </div>
+    </header>
 
+    <main class="main-content">
         <section class="center-art">
             <img src="ilustracion.png" alt="Ilustración de mujer en sillón" class="hero-illustration">
         </section>
@@ -160,17 +228,17 @@
 
     <script>
         const translations = {
-            es: {
-                htmlLang: "es",
-                bannerTitle: "BIENVENIDO A DARRMILLY",
-                byBadge: "por",
-                roleText: "Frases Visuales y Diseño Digital"
-            },
             en: {
                 htmlLang: "en",
                 bannerTitle: "WELCOME TO DARRMILLY",
                 byBadge: "by",
                 roleText: "Visual Quotes & Digital Design"
+            },
+            es: {
+                htmlLang: "es",
+                bannerTitle: "WELCOME TO DARRMILLY",
+                byBadge: "por",
+                roleText: "Frases Visuales y Diseño Digital"
             }
         };
 
@@ -181,7 +249,7 @@
         const mainIllustration = document.querySelector(".hero-illustration");
 
         function setLanguage(lang) {
-            const t = translations[lang] || translations.es;
+            const t = translations[lang] || translations.en;
             document.documentElement.lang = t.htmlLang;
             bannerTitle.textContent = t.bannerTitle;
             byBadge.textContent = t.byBadge;
@@ -203,9 +271,9 @@
             btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
         });
 
-        let savedLang = "es";
+        let savedLang = "en";
         try {
-            savedLang = localStorage.getItem("darrmilly_lang") || "es";
+            savedLang = localStorage.getItem("darrmilly_lang") || "en";
         } catch (e) {}
         setLanguage(savedLang);
     </script>
