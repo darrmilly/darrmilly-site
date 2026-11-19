@@ -1,134 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DarrMilly Studio</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #FAF5EF; /* Fondo crema suave */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 900px;
-      width: 100%;
-      text-align: center;
-    }
-
-    /* Banner superior tinto */
-    .hero-banner {
-      background-color: #801313; /* Rojo tinto */
-      border-radius: 28px;
-      padding: 40px 20px;
-      margin-bottom: 50px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .hero-banner h1 {
-      color: #D4AF37; /* Dorado */
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: normal;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-
-    .logo-monogram {
-      color: #D4AF37;
-      font-size: 3.5rem;
-      font-family: 'Georgia', serif;
-      letter-spacing: -4px;
-      font-weight: bold;
-      line-height: 1;
-    }
-
-    /* Sección inferior con la firma y marca */
-    .profile-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .author-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-    }
-
-    .by-badge {
-      background-color: #801313;
-      color: #D4AF37;
-      font-family: 'Georgia', cursive, serif;
-      font-style: italic;
-      font-size: 1.2rem;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .author-text h2 {
-      color: #801313;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .author-text p {
-      color: #801313;
-      font-size: 0.95rem;
-      margin-top: 2px;
-    }
-
-    /* Espacio para colocar la ilustración si tienes el archivo de imagen */
-    .illustration {
-      max-width: 180px;
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darrmilly Studio</title>
+    <!-- Importamos la tipografía Lora desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Vinculamos el archivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
-    <!-- Banner tinto con título y logo -->
-    <div class="hero-banner">
-      <h1>WELCOME TO DARRMILLY STUDIO</h1>
-      <div class="logo-monogram">DM</div>
-    </div>
+    <main class="container">
+        <!-- Banner superior -->
+        <header class="hero-banner">
+            <h1 class="title">WELCOME TO DARRMILLY STUDIO</h1>
+            <!-- Aquí va tu logo (image_2.png) -->
+            <img src="logo-dm.png" alt="Logo DM" class="logo">
+        </header>
 
-    <!-- Firma de marca -->
-    <div class="profile-section">
-      <!-- Si tienes guardada la imagen de la chica con el café, puedes cambiar src="tu-imagen.png" -->
-      <!-- <img src="ilustracion.png" alt="DarrMilly Illustration" class="illustration"> -->
+        <!-- Ilustración central (image_1.png) -->
+        <section class="illustration-container">
+            <img src="ilustracion.png" alt="Ilustración de mujer con taza" class="main-illustration">
+        </section>
 
-      <div class="author-info">
-        <div class="by-badge">by</div>
-        <div class="author-text">
-          <h2>MARIA DUNN</h2>
-          <p>Visual Quotes & Digital Design</p>
-        </div>
-      </div>
-    </div>
-  </div>
+        <!-- Pie de página / Autoría -->
+        <footer class="author-section">
+            <div class="by-badge">by</div>
+            <div class="author-text">
+                <h2 class="author-name">MARIA DUNN</h2>
+                <p class="author-sub">Visual Quotes & Digital Design</p>
+            </div>
+        </footer>
+    </main>
 
 </body>
-</html>
+</html>/* Reset básico para evitar márgenes raros */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFBF4; /* Fondo crema cálido */
+    font-family: 'Lora', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor principal de la página */
+.container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Espacio entre secciones */
+}
+
+/* Banner superior rojo */
+.hero-banner {
+    background-color: #7E1515; /* Rojo vino oscuro */
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 20px; /* Bordes redondeados */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    color: #D4AF37; /* Dorado */
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el logo DM */
+.logo {
+    height: auto;
+    width: 80px; /* Ajusta este tamaño según prefieras */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Contenedor de la ilustración central */
+.illustration-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.main-illustration {
+    max-width: 100%;
+    height: auto;
+    width: 200px; /* Ajusta el tamaño de la ilustración */
+}
+
+/* Sección del autor */
+.author-section {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espacio entre el círculo y el texto */
+    margin-top: 10px;
+}
+
+/* El círculo con el "by" */
+.by-badge {
+    background-color: #7E1515;
+    color: #D4AF37;
+    font-style: italic;
+    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+}
+
+/* Texto del autor */
+.author-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    color: #7E1515;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.author-sub {
+    color: #7E1515;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.9;
+}
