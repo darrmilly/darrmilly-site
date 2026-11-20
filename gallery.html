@@ -1,1 +1,380 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darrmilly — Gallery</title>
+    <meta name="description" content="Darrmilly — Born from a once-in-a-lifetime love: quotes, design, and soft music.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F6EFE6;
+            font-family: 'Lora', serif;
+            color: #7A1212;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .wave-banner {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            min-height: 145px;
+            background-image: url("banner-ola.png");
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 20px 28px;
+        }
+
+        .banner-logo-link {
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .banner-logo {
+            width: 82px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+        }
+
+        .gallery-container {
+            width: 100%;
+            max-width: 820px;
+            padding: 14px 24px 42px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .lang-bar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 14px;
+            margin-bottom: 6px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #7A1212;
+            cursor: pointer;
+            padding: 4px 6px;
+            border-bottom: 2px solid transparent;
+            transition: opacity 0.2s ease, border-color 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            opacity: 0.75;
+        }
+
+        .lang-btn.active {
+            border-bottom-color: #C9963B;
+        }
+
+        .gallery-title {
+            font-size: clamp(2rem, 4.5vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #7A1212;
+            text-align: center;
+            margin: 6px 0 36px;
+            text-shadow: 2px 2px 0px rgba(212, 168, 79, 0.45);
+        }
+
+        .quotes-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 44px 52px;
+            margin-bottom: 48px;
+        }
+
+        .quote-card {
+            position: relative;
+            background-color: #7A1212;
+            border-radius: 14px;
+            padding: 8px 13px;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            min-height: 245px;
+            box-shadow: 0 4px 14px rgba(122, 18, 18, 0.08);
+        }
+
+        .quote-card::before,
+        .quote-card::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            bottom: 8px;
+            width: 7px;
+            background: linear-gradient(180deg, #C79438 0%, #F1CF7A 50%, #B88228 100%);
+        }
+
+        .quote-card::before {
+            left: 4px;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .quote-card::after {
+            right: 4px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-inner {
+            background-color: #F6EFE6;
+            border-radius: 10px;
+            width: 100%;
+            padding: 26px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-text {
+            font-size: 1.03rem;
+            font-weight: 600;
+            line-height: 1.48;
+            color: #7A1212;
+        }
+
+        .quote-image {
+            max-width: 100%;
+            max-height: 220px;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-top: auto;
+            margin-bottom: 18px;
+        }
+
+        .page-btn {
+            background: none;
+            border: none;
+            font-family: 'Lora', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #7A1212;
+            cursor: pointer;
+            padding: 6px 10px;
+            transition: opacity 0.2s ease;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            opacity: 0.7;
+            text-decoration: underline;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .page-indicator {
+            font-size: 0.9rem;
+            color: #7A1212;
+            opacity: 0.8;
+        }
+
+        .gallery-footer {
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #7A1212;
+            padding-top: 4px;
+        }
+
+        @media (max-width: 700px) {
+            .wave-banner {
+                min-height: 115px;
+                padding: 14px 16px 20px;
+            }
+
+            .banner-logo {
+                width: 68px;
+            }
+
+            .gallery-container {
+                padding: 12px 18px 34px;
+            }
+
+            .lang-bar {
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .gallery-title {
+                margin: 4px 0 24px;
+            }
+
+            .quotes-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-bottom: 34px;
+            }
+
+            .quote-card {
+                min-height: 195px;
+            }
+
+            .quote-inner {
+                padding: 22px 18px;
+            }
+
+            .quote-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="wave-banner">
+        <a href="index.html" class="banner-logo-link" title="Back to Home">
+            <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+        </a>
+    </header>
+
+    <main class="gallery-container">
+        <div class="lang-bar" role="group" aria-label="Language switcher">
+            <button type="button" id="btnEn" class="lang-btn active" onclick="cambiarIdioma('en')">English</button>
+            <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
+        </div>
+
+        <h1 class="gallery-title" id="galleryTitle">GALLERY</h1>
+
+        <section class="quotes-grid" id="quotesGrid" aria-live="polite"></section>
+
+        <nav class="pagination" aria-label="Gallery pages">
+            <button type="button" id="prevBtn" class="page-btn" onclick="cambiarPagina(-1)">Previous page</button>
+            <span class="page-indicator" id="pageIndicator">1 / 1</span>
+            <button type="button" id="nextBtn" class="page-btn" onclick="cambiarPagina(1)">Next page</button>
+        </nav>
+
+        <footer class="gallery-footer" id="footerCopy">
+            ALL RIGHTS RESERVED / 2026
+        </footer>
+    </main>
+
+    <script src="frases.js"></script>
+    <script>
+        var idiomaActual = 'en';
+        var paginaActual = 1;
+        var frasesPorPagina = 4;
+
+        try {
+            var guardado = localStorage.getItem('darrmilly_lang');
+            if (guardado === 'es' || guardado === 'en') {
+                idiomaActual = guardado;
+            }
+        } catch (e) {}
+
+        function renderizarGaleria() {
+            var lista = (typeof misFrases !== 'undefined') ? misFrases : [];
+            var totalPaginas = Math.max(1, Math.ceil(lista.length / frasesPorPagina));
+
+            if (paginaActual > totalPaginas) {
+                paginaActual = totalPaginas;
+            }
+
+            var inicio = (paginaActual - 1) * frasesPorPagina;
+            var visibles = lista.slice(inicio, inicio + frasesPorPagina);
+            var grid = document.getElementById('quotesGrid');
+            grid.innerHTML = '';
+
+            visibles.forEach(function(item) {
+                var card = document.createElement('article');
+                card.className = 'quote-card';
+
+                var inner = document.createElement('div');
+                inner.className = 'quote-inner';
+
+                if (item.imagen) {
+                    var img = document.createElement('img');
+                    img.src = item.imagen;
+                    img.alt = (idiomaActual === 'es' ? item.es : item.en) || 'Darrmilly quote';
+                    img.className = 'quote-image';
+                    inner.appendChild(img);
+                } else {
+                    var p = document.createElement('p');
+                    p.className = 'quote-text';
+                    p.textContent = (idiomaActual === 'es') ? item.es : item.en;
+                    inner.appendChild(p);
+                }
+
+                card.appendChild(inner);
+                grid.appendChild(card);
+            });
+
+            var esEspañol = (idiomaActual === 'es');
+            document.documentElement.lang = esEspañol ? 'es' : 'en';
+            document.getElementById('galleryTitle').textContent = esEspañol ? 'GALERÍA' : 'GALLERY';
+            document.getElementById('prevBtn').textContent = esEspañol ? 'Página anterior' : 'Previous page';
+            document.getElementById('nextBtn').textContent = esEspañol ? 'Siguiente página' : 'Next page';
+            document.getElementById('footerCopy').textContent = esEspañol
+                ? 'TODOS LOS DERECHOS RESERVADOS / 2026'
+                : 'ALL RIGHTS RESERVED / 2026';
+
+            var prevBtn = document.getElementById('prevBtn');
+            var nextBtn = document.getElementById('nextBtn');
+            prevBtn.disabled = (paginaActual <= 1);
+            nextBtn.disabled = (paginaActual >= totalPaginas);
+
+            prevBtn.style.display = (totalPaginas > 1 && paginaActual > 1) ? 'inline-block' : 'none';
+            document.getElementById('pageIndicator').style.display = (totalPaginas > 1) ? 'inline-block' : 'none';
+            document.getElementById('pageIndicator').textContent = paginaActual + ' / ' + totalPaginas;
+
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
+        }
+
+        function cambiarIdioma(lang) {
+            idiomaActual = lang;
+            try {
+                localStorage.setItem('darrmilly_lang', lang);
+            } catch (e) {}
+            renderizarGaleria();
+        }
+
+        function cambiarPagina(direccion) {
+            paginaActual += direccion;
+            renderizarGaleria();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        renderizarGaleria();
+    </script>
+
+</body>
+</html>
