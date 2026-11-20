@@ -1,4 +1,4 @@
-var frasesVida = [
+const misFrases = [
     {
         es: "La costumbre tiene una manera muy particular de disfrazar de normal aquello que nunca te has detenido a cuestionar.",
         en: "Habit has a very particular way of disguising as normal what you have never stopped to question."
