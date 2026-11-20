@@ -160,3 +160,138 @@
             font-weight: 600;
             line-height: 1.45;
             color: #7A1212;
+            white-space: pre-line;
+        }
+
+        .gallery-footer {
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #7A1212;
+            margin-top: auto;
+            padding-top: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .wave-banner {
+                min-height: 115px;
+                padding: 14px 16px 20px;
+            }
+
+            .banner-logo {
+                width: 68px;
+            }
+
+            .gallery-container {
+                padding: 12px 18px 34px;
+            }
+
+            .lang-bar {
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            .gallery-title {
+                margin: 4px 0 24px;
+            }
+
+            .quotes-grid {
+                gap: 16px;
+                margin-bottom: 34px;
+            }
+
+            .quote-card {
+                min-height: 82px;
+            }
+
+            .quote-inner {
+                padding: 12px 16px;
+            }
+
+            .quote-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="wave-banner">
+        <a href="index.html" class="banner-logo-link" title="Back to Home">
+            <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+        </a>
+    </header>
+
+    <main class="gallery-container">
+        <div class="lang-bar" role="group" aria-label="Language switcher">
+            <button type="button" id="btnEn" class="lang-btn active" onclick="cambiarIdioma('en')">English</button>
+            <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
+        </div>
+
+        <h1 class="gallery-title" id="galleryTitle">LOVE</h1>
+
+        <section class="quotes-grid" id="quotesGrid" aria-live="polite"></section>
+
+        <footer class="gallery-footer" id="footerCopy">
+            ALL RIGHTS RESERVED / 2026
+        </footer>
+    </main>
+
+    <script src="frases-amor.js"></script>
+    <script>
+        var idiomaActual = 'en';
+
+        try {
+            var guardado = localStorage.getItem('darrmilly_lang');
+            if (guardado === 'es' || guardado === 'en') {
+                idiomaActual = guardado;
+            }
+        } catch (e) {}
+
+        function renderizarAmor() {
+            var lista = (typeof frasesAmor !== 'undefined') ? frasesAmor : [];
+            var grid = document.getElementById('quotesGrid');
+            grid.innerHTML = '';
+
+            lista.forEach(function(item) {
+                var card = document.createElement('article');
+                card.className = 'quote-card';
+
+                var inner = document.createElement('div');
+                inner.className = 'quote-inner';
+
+                var p = document.createElement('p');
+                p.className = 'quote-text';
+                p.textContent = (idiomaActual === 'es') ? item.es : item.en;
+                inner.appendChild(p);
+
+                card.appendChild(inner);
+                grid.appendChild(card);
+            });
+
+            var esEspañol = (idiomaActual === 'es');
+            document.documentElement.lang = esEspañol ? 'es' : 'en';
+            document.title = esEspañol ? 'Darrmilly — Amor' : 'Darrmilly — Love';
+            document.getElementById('galleryTitle').textContent = esEspañol ? 'AMOR' : 'LOVE';
+            document.getElementById('footerCopy').textContent = esEspañol
+                ? 'TODOS LOS DERECHOS RESERVADOS / 2026'
+                : 'ALL RIGHTS RESERVED / 2026';
+
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
+        }
+
+        function cambiarIdioma(lang) {
+            idiomaActual = lang;
+            try {
+                localStorage.setItem('darrmilly_lang', lang);
+            } catch (e) {}
+            renderizarAmor();
+        }
+
+        renderizarAmor();
+    </script>
+
+</body>
+</html>
