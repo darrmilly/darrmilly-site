@@ -245,7 +245,7 @@
         </footer>
     </main>
 
-    <script src="frases.js"></script>
+    <script src="frases-despedida.js"></script>
     <script>
         var idiomaActual = 'en';
 
@@ -257,10 +257,14 @@
         } catch (e) {}
 
         function renderizarDespedida() {
-            var base = (typeof misFrases !== 'undefined') ? misFrases : [];
-            var lista = base.filter(function(item) {
-                return (item.tema || '').toLowerCase() === 'despedida';
-            });
+            var lista = [];
+            if (typeof frasesDespedida !== 'undefined') {
+                lista = frasesDespedida;
+            } else if (typeof misFrases !== 'undefined') {
+                lista = misFrases.filter(function(item) {
+                    return (item.tema || '').toLowerCase() === 'despedida';
+                });
+            }
 
             var grid = document.getElementById('quotesGrid');
             grid.innerHTML = '';
@@ -314,3 +318,4 @@
 
 </body>
 </html>
+
