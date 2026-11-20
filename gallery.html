@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darrmilly — Gallery</title>
+    <title>Darrmilly — Love</title>
     <meta name="description" content="Darrmilly — Born from a once-in-a-lifetime love: quotes, design, and soft music.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,7 +236,7 @@
             <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
         </div>
 
-        <h1 class="gallery-title" id="galleryTitle">GALLERY</h1>
+        <h1 class="gallery-title" id="galleryTitle">LOVE</h1>
 
         <section class="quotes-grid" id="quotesGrid" aria-live="polite"></section>
 
@@ -245,7 +245,7 @@
         </footer>
     </main>
 
-    <script src="frases.js"></script>
+    <script src="frases-amor.js"></script>
     <script>
         var idiomaActual = 'en';
 
@@ -257,7 +257,7 @@
         } catch (e) {}
 
         function renderizarGaleria() {
-            var lista = (typeof misFrases !== 'undefined') ? misFrases : [];
+            var lista = (typeof frasesAmor !== 'undefined') ? frasesAmor : [];
             var grid = document.getElementById('quotesGrid');
             grid.innerHTML = '';
 
@@ -271,7 +271,7 @@
                 if (item.imagen) {
                     var img = document.createElement('img');
                     img.src = item.imagen;
-                    img.alt = (idiomaActual === 'es' ? item.es : item.en) || 'Darrmilly quote';
+                    img.alt = (idiomaActual === 'es' ? item.es : item.en) || 'Darrmilly love quote';
                     img.className = 'quote-image';
                     inner.appendChild(img);
                 } else {
@@ -287,7 +287,8 @@
 
             var esEspañol = (idiomaActual === 'es');
             document.documentElement.lang = esEspañol ? 'es' : 'en';
-            document.getElementById('galleryTitle').textContent = esEspañol ? 'GALERÍA' : 'GALLERY';
+            document.title = esEspañol ? 'Darrmilly — Amor' : 'Darrmilly — Love';
+            document.getElementById('galleryTitle').textContent = esEspañol ? 'AMOR' : 'LOVE';
             document.getElementById('footerCopy').textContent = esEspañol
                 ? 'TODOS LOS DERECHOS RESERVADOS / 2026'
                 : 'ALL RIGHTS RESERVED / 2026';
