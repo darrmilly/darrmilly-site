@@ -148,8 +148,10 @@
             width: 100%;
             padding: 14px 24px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 10px;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -161,6 +163,23 @@
             line-height: 1.45;
             color: #7A1212;
             white-space: pre-line;
+        }
+
+        .share-btn {
+            padding: 6px 16px;
+            background-color: #7A1212;
+            color: #F6EFE6;
+            border: 1px solid #C9963B;
+            border-radius: 20px;
+            font-family: 'Lora', serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .share-btn:hover {
+            background-color: #5C0D0D;
         }
 
         .gallery-footer {
@@ -249,12 +268,45 @@
             }
         } catch (e) {}
 
+        async function compartirFrase(quoteText, url, esEspañol) {
+            var message = '"' + quoteText + '" — DarrMilly:';
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: 'DarrMilly',
+                        text: message,
+                        url: url
+                    });
+                } catch (err) {
+                    // Si el usuario cierra el menú, no se muestra error
+                }
+            } else {
+                var fallbackText = message + ' ' + url;
+                try {
+                    await navigator.clipboard.writeText(fallbackText);
+                    alert(esEspañol
+                        ? 'Se copió la frase con el enlace para compartir.'
+                        : 'Quote and link copied to clipboard to share.');
+                } catch (err) {
+                    alert(esEspañol
+                        ? 'No se pudo copiar automáticamente.'
+                        : 'Could not copy automatically.');
+                }
+            }
+        }
+
         function renderizarFe() {
             var lista = (typeof pensamientosDeFe !== 'undefined') ? pensamientosDeFe : [];
             var grid = document.getElementById('quotesGrid');
+            var esEspañol = (idiomaActual === 'es');
+            var shareUrl = 'https://www.darrmilly.com/#faith';
+
             grid.innerHTML = '';
 
             lista.forEach(function(item) {
+                var textoFrase = esEspañol ? item.es : item.en;
+
                 var card = document.createElement('article');
                 card.className = 'quote-card';
 
@@ -263,14 +315,22 @@
 
                 var p = document.createElement('p');
                 p.className = 'quote-text';
-                p.textContent = (idiomaActual === 'es') ? item.es : item.en;
+                p.textContent = textoFrase;
                 inner.appendChild(p);
+
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'share-btn';
+                btn.textContent = esEspañol ? 'Compartir' : 'Share';
+                btn.addEventListener('click', function() {
+                    compartirFrase(textoFrase, shareUrl, esEspañol);
+                });
+                inner.appendChild(btn);
 
                 card.appendChild(inner);
                 grid.appendChild(card);
             });
 
-            var esEspañol = (idiomaActual === 'es');
             document.documentElement.lang = esEspañol ? 'es' : 'en';
             document.title = esEspañol ? 'Darrmilly — Fe' : 'Darrmilly — Faith';
             document.getElementById('galleryTitle').textContent = esEspañol ? 'FE' : 'FAITH';
