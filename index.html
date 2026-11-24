@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarrMilly — Gallery</title>
+    <title>DarrMilly — Starting Again Without Erasing What Was Lived</title>
+    <meta name="description" content="DarrMilly by Maria Dunn — Reflections and writing prompts to name what hurts, honor your worth, and start again with experience.">
+
+    <!-- Vista previa para redes sociales y mensajería -->
+    <meta property="og:title" content="DarrMilly — Starting Again Without Erasing What Was Lived" />
+    <meta property="og:description" content="Reflections and writing prompts to name what hurts, honor your worth, and start again with experience." />
+    <meta property="og:image" content="https://www.darrmilly.com/portada-darrmilly.png" />
+    <meta property="og:url" content="https://www.darrmilly.com/" />
+    <meta property="og:type" content="website" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
@@ -26,60 +35,102 @@
         }
 
         .wave-banner {
+            position: relative;
             width: 100%;
             max-width: 900px;
-            min-height: 140px;
+            min-height: 195px;
             background-image: url("banner-ola.png");
             background-size: cover;
             background-position: center bottom;
             background-repeat: no-repeat;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 18px 20px;
+            text-align: center;
+            padding: 20px 24px 42px;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .banner-tagline {
+            max-width: 780px;
+            color: #E3B64E;
+            font-size: clamp(1.1rem, 2.3vw, 1.65rem);
+            font-weight: 500;
+            line-height: 1.3;
+            text-wrap: balance;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-bottom-row {
+            position: relative;
+            width: 100%;
+            max-width: 760px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 76px;
         }
 
         .banner-logo {
-            width: 68px;
+            width: 74px;
+            max-width: 24%;
             height: auto;
             display: block;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
         }
 
-        .nav-strip {
+        .banner-brand {
+            position: absolute;
+            right: 8px;
+            color: #E3B64E;
+            font-size: clamp(0.92rem, 1.7vw, 1.2rem);
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .top-controls-bar {
             width: 100%;
             max-width: 900px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 24px 8px;
             gap: 12px;
+            padding: 14px 24px 10px;
         }
 
-        .back-link {
-            font-family: 'Lora', serif;
-            font-size: 0.98rem;
-            font-weight: 600;
-            color: #7A1212;
+        .gallery-trigger-btn {
+            display: inline-block;
             text-decoration: none;
-            padding: 5px 14px;
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 5px 16px;
             border-radius: 999px;
             border: 1.5px solid #7A1212;
             background-color: transparent;
+            color: #7A1212;
             cursor: pointer;
             transition: all 0.15s ease;
         }
 
-        .back-link:hover,
-        .back-link:active,
-        .back-link.pressed {
+        .gallery-trigger-btn:hover,
+        .gallery-trigger-btn:active {
             background-color: #7A1212;
-            color: #E3B64E;
-            border-color: #7A1212;
-            transform: scale(0.98);
+            color: #E2B857;
         }
 
-        .lang-group {
+        .lang-bar {
             display: flex;
             gap: 10px;
             margin-left: auto;
@@ -87,8 +138,8 @@
 
         .lang-btn {
             font-family: 'Lora', serif;
-            font-size: 0.9rem;
-            padding: 5px 14px;
+            font-size: 0.92rem;
+            padding: 5px 15px;
             border-radius: 999px;
             border: 1.5px solid #7A1212;
             background-color: transparent;
@@ -101,81 +152,228 @@
         .lang-btn:hover,
         .lang-btn:active {
             background-color: #7A1212;
-            color: #E3B64E;
+            color: #E2B857;
         }
 
-        .gallery-container {
+        .main-content {
             width: 100%;
-            max-width: 720px;
-            padding: 18px 20px 52px;
+            max-width: 780px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 20px 48px;
+        }
+
+        .center-art {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 8px 0 20px;
+        }
+
+        .hero-illustration {
+            width: 210px;
+            max-width: 70%;
+            height: auto;
+            display: block;
+        }
+
+        .essence-below {
+            max-width: 620px;
+            padding: 4px 16px;
+            margin-bottom: 22px;
             text-align: center;
         }
 
-        .gallery-title {
-            font-size: clamp(1.55rem, 3.2vw, 2.1rem);
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            color: #7A1212;
-            margin-bottom: 24px;
+        .essence-text {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #4A1111;
+            margin-bottom: 10px;
         }
 
-        .themes-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .theme-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 52px;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background-color: #FFFDF9;
-            border: 1.5px solid #C9963B;
-            box-shadow: 0 2px 6px rgba(122, 18, 18, 0.06);
-            color: #7A1212;
-            text-decoration: none;
+        .essence-signature {
             font-size: 1rem;
+            font-style: italic;
             font-weight: 600;
-            transition: all 0.15s ease;
-            -webkit-tap-highlight-color: transparent;
+            color: #7A1212;
+            letter-spacing: 0.4px;
         }
 
-        .theme-button:hover {
-            background-color: #FBF3E4;
-            border-color: #7A1212;
-            transform: translateY(-1px);
+        .guide-box {
+            width: 100%;
+            max-width: 480px;
+            background-color: rgba(122, 18, 18, 0.04);
+            border: 1px solid rgba(122, 18, 18, 0.22);
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin: 0 auto 14px;
+            text-align: center;
         }
 
-        .theme-button:active,
-        .theme-button.pressed {
+        .guide-cta-btn {
+            display: inline-block;
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
             background-color: #7A1212;
             color: #E3B64E;
+            text-decoration: none;
+            padding: 9px 20px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .guide-cta-btn:hover,
+        .guide-cta-btn:active {
+            background-color: #5D0D0D;
             border-color: #C9963B;
-            transform: scale(0.98);
+        }
+
+        .guide-note {
+            font-size: 0.88rem;
+            color: #5E1414;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        .guide-form {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .guide-form.open {
+            display: flex;
+        }
+
+        .guide-input {
+            font-family: 'Lora', serif;
+            font-size: 0.92rem;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: #FFFDF9;
+            color: #7A1212;
+            min-width: 200px;
+            flex: 1 1 190px;
+            max-width: 270px;
+        }
+
+        .guide-submit {
+            font-family: 'Lora', serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: #7A1212;
+            color: #E3B64E;
+            cursor: pointer;
+        }
+
+        .guide-feedback {
+            width: 100%;
+            font-size: 0.88rem;
+            color: #7A1212;
+            margin-top: 6px;
+            min-height: 1.2em;
+        }
+
+        .guide-delivery-box {
+            display: none;
+            margin-top: 16px;
+            padding: 18px;
+            border-radius: 12px;
+            background-color: #FFFDF9;
+            border: 1px solid rgba(122, 18, 18, 0.25);
+            text-align: left;
+            color: #4A1111;
+            font-size: 0.92rem;
+        }
+
+        .guide-delivery-box.open {
+            display: block;
+        }
+
+        .guide-delivery-box p {
+            margin-bottom: 10px;
+        }
+
+        .guide-delivery-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .delivery-btn-wrap {
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .contact-mail {
+            margin-top: 24px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .contact-mail a {
+            color: #7A1212;
+            text-decoration: none;
+            border-bottom: 1px solid #C9963B;
         }
 
         @media (max-width: 650px) {
-            .themes-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+            .wave-banner {
+                min-height: 160px;
+                padding: 16px 14px 28px;
             }
 
-            .nav-strip {
-                padding: 12px 14px 6px;
+            .banner-tagline {
+                font-size: 1.02rem;
             }
 
-            .back-link,
-            .lang-btn {
-                font-size: 0.82rem;
-                padding: 4px 11px;
+            .banner-bottom-row {
+                min-height: 62px;
             }
 
-            .theme-button {
+            .banner-brand {
+                position: static;
+                margin-left: 12px;
                 font-size: 0.92rem;
-                min-height: 46px;
+                letter-spacing: 1.5px;
+            }
+
+            .banner-logo {
+                width: 58px;
+            }
+
+            .top-controls-bar {
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 14px 6px;
+                gap: 8px;
+            }
+
+            .lang-bar {
+                gap: 6px;
+                margin-left: auto;
+            }
+
+            .gallery-trigger-btn,
+            .lang-btn {
+                font-size: 0.8rem;
+                padding: 4px 10px;
+            }
+
+            .main-content {
+                padding: 12px 14px 36px;
+            }
+
+            .hero-illustration {
+                width: 160px;
             }
         }
     </style>
@@ -183,70 +381,207 @@
 <body>
 
     <header class="wave-banner">
-        <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+        <div class="banner-content">
+            <p class="banner-tagline" id="bannerTagline">Starting again without erasing what was lived.</p>
+            <div class="banner-bottom-row">
+                <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+                <p class="banner-brand">DARRMILLY</p>
+            </div>
+        </div>
     </header>
 
-    <div class="nav-strip">
-        <a href="index.html" class="back-link" id="backBtn">← Back</a>
-        <div class="lang-group" role="group" aria-label="Language switcher">
-            <button type="button" id="btnEn" class="lang-btn active" onclick="setGalleryLang('en')">English</button>
-            <button type="button" id="btnEs" class="lang-btn" onclick="setGalleryLang('es')">Español</button>
+    <div class="top-controls-bar">
+        <a href="gallery.html" id="galleryTriggerBtn" class="gallery-trigger-btn">Gallery</a>
+
+        <div class="lang-bar" role="group" aria-label="Language switcher">
+            <button type="button" id="btnEn" class="lang-btn active" onclick="cambiarIdioma('en')">English</button>
+            <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
         </div>
     </div>
 
-    <main class="gallery-container">
-        <h1 class="gallery-title" id="galleryTitle">GALLERY</h1>
+    <main class="main-content">
+        <div class="center-art">
+            <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
+        </div>
 
-        <nav class="themes-grid" aria-label="Quote themes">
-            <a href="dedicatorias.html" class="theme-button" data-en="Dedications" data-es="Dedicatorias">Dedications</a>
-            <a href="aniversario.html" class="theme-button" data-en="Anniversary" data-es="Aniversario">Anniversary</a>
-            <a href="amor.html" class="theme-button" data-en="Love" data-es="Amor">Love</a>
-            <a href="motivacion.html" class="theme-button" data-en="Encouragement" data-es="Motivación">Encouragement</a>
-            <a href="dolor.html" class="theme-button" data-en="Pain" data-es="Dolor">Pain</a>
-            <a href="despedida.html" class="theme-button" data-en="Farewell" data-es="Despedida">Farewell</a>
-            <a href="fe.html" class="theme-button" data-en="Faith" data-es="Fe">Faith</a>
-            <a href="descansa-en-paz.html" class="theme-button" data-en="Rest in Peace" data-es="Descansa en Paz">Rest in Peace</a>
-            <a href="duelo.html" class="theme-button" data-en="Grief" data-es="Duelo">Grief</a>
-        </nav>
+        <section class="essence-below" aria-label="Essence">
+            <p class="essence-text" id="essenceText">
+                DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed.
+            </p>
+            <p class="essence-signature" id="essenceSignature">By Maria Dunn</p>
+        </section>
+
+        <section class="guide-box" aria-label="Guide">
+            <button type="button" class="guide-cta-btn" id="guideCtaBtn" onclick="toggleGuideForm()">
+                Get “7 Questions to Start Again”
+            </button>
+            <p class="guide-note" id="guideNote">
+                Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.
+            </p>
+
+            <form class="guide-form" id="guideForm" action="https://formspree.io/f/xzerkqgp" method="POST" onsubmit="handleGuideSubmit(event)">
+                <label for="guideEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
+                <input type="email" name="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
+                <input type="hidden" name="_subject" value="Nuevo registro en DarrMilly — 7 preguntas para volver a empezar">
+                <button type="submit" class="guide-submit" id="guideSubmitBtn">Send me the guide</button>
+                <p class="guide-feedback" id="guideFeedback"></p>
+            </form>
+
+            <div class="guide-delivery-box" id="guideDeliveryBox" aria-live="polite">
+                <p id="delGreeting">Hello,</p>
+                <p id="delThanks">Thank you for being here.</p>
+                <p id="delP1">Sometimes life changes in a way we didn’t expect. There are moments when we need to pause, listen to what we feel, and remember that even when something has shifted, our worth is still within us.</p>
+                <p id="delP2">That is why I want to share <strong>7 Questions to Start Again</strong> with you, a brief reflection workbook I created to keep you company.</p>
+                <p id="delP3">It is not a challenge—you do not have to answer all seven questions or find every answer today. You can start with the one that resonates most with you, write at your own pace, or come back whenever you need.</p>
+                <p id="delP4">My wish is that these pages give you a moment to listen to yourself, recognize what you have learned, and discover that small step you can take from where you stand.</p>
+                <div class="delivery-btn-wrap">
+                    <a href="7-preguntas-para-volver-a-empezar.pdf" download class="guide-cta-btn" id="deliveryDownloadBtn">GET MY 7 QUESTIONS</a>
+                </div>
+                <p id="delP5">Remember: you never start over from scratch. You carry everything you have learned with you, even what you are still trying to understand.</p>
+                <p id="delSign">With warmth,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Starting again without erasing what was lived</p>
+            </div>
+        </section>
+
+        <p class="contact-mail">
+            <a href="mailto:darrmillyoficial@gmail.com">darrmillyoficial@gmail.com</a>
+        </p>
     </main>
 
     <script>
-        function setGalleryLang(lang) {
-            var isEs = (lang === 'es');
-            document.documentElement.lang = isEs ? 'es' : 'en';
-            document.getElementById('backBtn').textContent = isEs ? '← Volver' : '← Back';
-            document.getElementById('galleryTitle').textContent = isEs ? 'GALERÍA' : 'GALLERY';
-            document.title = isEs ? 'DarrMilly — Galería' : 'DarrMilly — Gallery';
+        var i18n = {
+            en: {
+                lang: 'en',
+                title: 'DarrMilly — Starting Again Without Erasing What Was Lived',
+                bannerTagline: 'Starting again without erasing what was lived.',
+                galleryTrigger: 'Gallery',
+                mainIllustrationAlt: 'Illustration of a woman sitting with a cup',
+                essenceText: 'DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed.',
+                essenceSignature: 'By Maria Dunn',
+                guideCta: 'Get “7 Questions to Start Again”',
+                guideNote: 'Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.',
+                emailPlaceholder: 'you@example.com',
+                guideSubmit: 'Send me the guide',
+                guideSending: 'Sending...',
+                guideSuccess: 'Your workbook is ready below.',
+                guideError: 'There was a problem submitting. Please try again.',
+                guideConnError: 'Connection error. Please check your connection and try again.',
+                delGreeting: 'Hello,',
+                delThanks: 'Thank you for being here.',
+                delP1: 'Sometimes life changes in a way we didn’t expect. There are moments when we need to pause, listen to what we feel, and remember that even when something has shifted, our worth is still within us.',
+                delP2: 'That is why I want to share <strong>7 Questions to Start Again</strong> with you, a brief reflection workbook I created to keep you company.',
+                delP3: 'It is not a challenge—you do not have to answer all seven questions or find every answer today. You can start with the one that resonates most with you, write at your own pace, or come back whenever you need.',
+                delP4: 'My wish is that these pages give you a moment to listen to yourself, recognize what you have learned, and discover that small step you can take from where you stand.',
+                deliveryDownloadBtn: 'GET MY 7 QUESTIONS',
+                delP5: 'Remember: you never start over from scratch. You carry everything you have learned with you, even what you are still trying to understand.',
+                delSign: 'With warmth,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Starting again without erasing what was lived'
+            },
+            es: {
+                lang: 'es',
+                title: 'DarrMilly — Volver a empezar sin borrar lo vivido',
+                bannerTagline: 'Volver a empezar sin borrar lo vivido.',
+                galleryTrigger: 'Galería',
+                mainIllustrationAlt: 'Ilustración de mujer en sillón con taza',
+                essenceText: 'DarrMilly nace de una convicción aprendida en el camino: la vida no ofrece garantías y a veces pide reconstruirlo todo, pero ninguna caída te deja con las manos vacías.',
+                essenceSignature: 'Por Maria Dunn',
+                guideCta: 'Recibe “7 preguntas para volver a empezar”',
+                guideNote: 'Déjame tu correo y te envío una guía breve con siete reflexiones y preguntas de escritura para ordenar lo que sientes cuando toca reconstruir. Sin ruido ni fórmulas mágicas.',
+                emailPlaceholder: 'tu@correo.com',
+                guideSubmit: 'Envíame la guía',
+                guideSending: 'Enviando...',
+                guideSuccess: 'Tu cuaderno está listo aquí abajo.',
+                guideError: 'Hubo un problema al enviar. Intenta de nuevo.',
+                guideConnError: 'Error de conexión. Revisa tu internet e intenta de nuevo.',
+                delGreeting: 'Hola,',
+                delThanks: 'Gracias por estar aquí.',
+                delP1: 'A veces la vida cambia de una manera que no esperábamos. Hay momentos en los que necesitamos detenernos, escuchar lo que sentimos y recordar que, aunque algo haya cambiado, nuestro valor sigue estando dentro de nosotros.',
+                delP2: 'Por eso quiero compartir contigo <strong>7 preguntas para volver a empezar</strong>, un pequeño cuaderno de reflexión que he creado para acompañarte.',
+                delP3: 'No es un reto, no tienes que responder las siete preguntas ni encontrar todas las respuestas hoy. Puedes comenzar por aquella que más resuene contigo, escribir a tu propio ritmo o volver cuando lo necesites.',
+                delP4: 'Mi deseo es que estas páginas te regalen un momento para escucharte, reconocer lo que has aprendido y descubrir ese pequeño paso que puedes dar desde donde estás.',
+                deliveryDownloadBtn: 'QUIERO MIS 7 PREGUNTAS',
+                delP5: 'Recuerda: no vuelves a empezar desde cero. Llevas contigo todo lo que has aprendido, incluso aquello que todavía estás intentando comprender.',
+                delSign: 'Con cariño,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Volver a empezar sin borrar lo vivido'
+            }
+        };
 
-            document.querySelectorAll('.theme-button').forEach(function (btn) {
-                var label = isEs ? btn.getAttribute('data-es') : btn.getAttribute('data-en');
-                if (label) btn.textContent = label;
-            });
+        var currentLang = 'en';
 
-            document.getElementById('btnEn').classList.toggle('active', !isEs);
-            document.getElementById('btnEs').classList.toggle('active', isEs);
+        function toggleGuideForm() {
+            var form = document.getElementById('guideForm');
+            form.classList.toggle('open');
+            if (form.classList.contains('open')) {
+                document.getElementById('guideEmail').focus();
+            }
         }
 
-        document.querySelectorAll('.theme-button, .back-link').forEach(function (el) {
-            el.addEventListener('pointerdown', function () {
-                el.classList.add('pressed');
-            });
-            el.addEventListener('pointerup', function () {
-                el.classList.remove('pressed');
-            });
-            el.addEventListener('pointerleave', function () {
-                el.classList.remove('pressed');
-            });
-            el.addEventListener('pointercancel', function () {
-                el.classList.remove('pressed');
-            });
-        });
+        async function handleGuideSubmit(event) {
+            event.preventDefault();
+            var form = event.target;
+            var feedback = document.getElementById('guideFeedback');
+            var submitBtn = document.getElementById('guideSubmitBtn');
+            var deliveryBox = document.getElementById('guideDeliveryBox');
+            var dict = i18n[currentLang];
 
-        window.addEventListener('pageshow', function () {
-            document.querySelectorAll('.pressed').forEach(function (el) {
-                el.classList.remove('pressed');
-            });
-        });
+            submitBtn.disabled = true;
+            feedback.textContent = dict.guideSending;
+
+            try {
+                var response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    feedback.textContent = dict.guideSuccess;
+                    deliveryBox.classList.add('open');
+                    form.reset();
+                } else {
+                    feedback.textContent = dict.guideError;
+                }
+            } catch (error) {
+                feedback.textContent = dict.guideConnError;
+            } finally {
+                submitBtn.disabled = false;
+            }
+        }
+
+        function cambiarIdioma(lang) {
+            currentLang = (lang === 'es') ? 'es' : 'en';
+            var dict = i18n[currentLang];
+            var esEspañol = (currentLang === 'es');
+
+            document.documentElement.lang = dict.lang;
+            document.title = dict.title;
+            document.getElementById('bannerTagline').textContent = dict.bannerTagline;
+            document.getElementById('galleryTriggerBtn').textContent = dict.galleryTrigger;
+
+            var illustration = document.getElementById('mainIllustration');
+            if (illustration) {
+                illustration.alt = dict.mainIllustrationAlt;
+            }
+
+            document.getElementById('essenceText').textContent = dict.essenceText;
+            document.getElementById('essenceSignature').textContent = dict.essenceSignature;
+
+            document.getElementById('guideCtaBtn').textContent = dict.guideCta;
+            document.getElementById('guideNote').textContent = dict.guideNote;
+            document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
+            document.getElementById('guideSubmitBtn').textContent = dict.guideSubmit;
+            document.getElementById('guideFeedback').textContent = '';
+
+            document.getElementById('delGreeting').textContent = dict.delGreeting;
+            document.getElementById('delThanks').textContent = dict.delThanks;
+            document.getElementById('delP1').textContent = dict.delP1;
+            document.getElementById('delP2').innerHTML = dict.delP2;
+            document.getElementById('delP3').textContent = dict.delP3;
+            document.getElementById('delP4').textContent = dict.delP4;
+            document.getElementById('deliveryDownloadBtn').textContent = dict.deliveryDownloadBtn;
+            document.getElementById('delP5').textContent = dict.delP5;
+            document.getElementById('delSign').innerHTML = dict.delSign;
+
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
+        }
     </script>
 </body>
 </html>
