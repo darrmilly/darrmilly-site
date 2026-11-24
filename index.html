@@ -48,32 +48,51 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 22px 20px 42px;
+            padding: 22px 24px 42px;
         }
 
         .banner-content {
             position: relative;
             z-index: 1;
+            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 10px;
+        }
+
+        .banner-tagline {
+            color: #E3B64E;
+            font-size: clamp(1.15rem, 2.6vw, 1.85rem);
+            font-weight: 500;
+            line-height: 1.3;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .banner-bottom-row {
+            width: 100%;
+            max-width: 680px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .banner-logo {
+            width: 78px;
+            max-width: 26%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
         }
 
         .banner-brand {
             color: #E3B64E;
-            font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+            font-size: clamp(1.1rem, 2.4vw, 1.65rem);
             font-weight: 400;
             letter-spacing: 2.5px;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
-        }
-
-        .banner-logo {
-            width: 84px;
-            max-width: 26%;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .top-controls-bar {
@@ -374,18 +393,25 @@
 
         @media (max-width: 650px) {
             .wave-banner {
-                min-height: 145px;
+                min-height: 155px;
                 padding: 16px 14px 28px;
+            }
+
+            .banner-tagline {
+                font-size: 1.1rem;
+            }
+
+            .banner-bottom-row {
+                gap: 16px;
             }
 
             .banner-brand {
                 font-size: 1.05rem;
                 letter-spacing: 1.5px;
-                margin-bottom: 6px;
             }
 
             .banner-logo {
-                width: 64px;
+                width: 60px;
             }
 
             .top-controls-bar {
@@ -415,8 +441,11 @@
 
     <header class="wave-banner">
         <div class="banner-content">
-            <p class="banner-brand">DARRMILLY</p>
-            <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+            <p class="banner-tagline" id="bannerTagline">Starting again without erasing what was lived.</p>
+            <div class="banner-bottom-row">
+                <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+                <p class="banner-brand">DARRMILLY</p>
+            </div>
         </div>
     </header>
 
@@ -501,6 +530,7 @@
             en: {
                 lang: 'en',
                 title: 'DarrMilly — Starting Again Without Erasing What Was Lived',
+                bannerTagline: 'Starting again without erasing what was lived.',
                 galleryTrigger: 'Gallery',
                 backBtn: '← Back',
                 mainIllustrationAlt: 'Illustration of a woman sitting with a cup',
@@ -528,6 +558,7 @@
             es: {
                 lang: 'es',
                 title: 'DarrMilly — Volver a empezar sin borrar lo vivido',
+                bannerTagline: 'Volver a empezar sin borrar lo vivido.',
                 galleryTrigger: 'Galería',
                 backBtn: '← Volver',
                 mainIllustrationAlt: 'Ilustración de mujer en sillón con taza',
@@ -625,6 +656,7 @@
 
             document.documentElement.lang = dict.lang;
             document.title = dict.title;
+            document.getElementById('bannerTagline').textContent = dict.bannerTagline;
             document.getElementById('galleryTriggerBtn').textContent = dict.galleryTrigger;
             document.getElementById('backFromGalleryBtn').textContent = dict.backBtn;
 
