@@ -48,7 +48,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 22px 24px 42px;
+            padding: 20px 24px 42px;
         }
 
         .banner-content {
@@ -62,36 +62,40 @@
         }
 
         .banner-tagline {
+            max-width: 780px;
             color: #E3B64E;
-            font-size: clamp(1.15rem, 2.6vw, 1.85rem);
+            font-size: clamp(1.1rem, 2.3vw, 1.65rem);
             font-weight: 500;
             line-height: 1.3;
+            text-wrap: balance;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .banner-bottom-row {
+            position: relative;
             width: 100%;
-            max-width: 680px;
+            max-width: 760px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 28px;
-            flex-wrap: wrap;
+            min-height: 76px;
         }
 
         .banner-logo {
-            width: 78px;
-            max-width: 26%;
+            width: 74px;
+            max-width: 24%;
             height: auto;
             display: block;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
         }
 
         .banner-brand {
+            position: absolute;
+            right: 8px;
             color: #E3B64E;
-            font-size: clamp(1.1rem, 2.4vw, 1.65rem);
+            font-size: clamp(0.92rem, 1.7vw, 1.2rem);
             font-weight: 400;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
@@ -102,7 +106,7 @@
             justify-content: space-between;
             align-items: center;
             gap: 12px;
-            padding: 12px 24px 6px;
+            padding: 14px 24px 10px;
         }
 
         .gallery-trigger-btn {
@@ -126,6 +130,7 @@
         .lang-bar {
             display: flex;
             gap: 10px;
+            margin-left: auto;
         }
 
         .lang-btn {
@@ -152,14 +157,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 12px 20px 48px;
+            padding: 14px 20px 48px;
         }
 
         .center-art {
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 6px 0 20px;
+            margin: 8px 0 20px;
         }
 
         .hero-illustration {
@@ -393,42 +398,49 @@
 
         @media (max-width: 650px) {
             .wave-banner {
-                min-height: 155px;
+                min-height: 160px;
                 padding: 16px 14px 28px;
             }
 
             .banner-tagline {
-                font-size: 1.1rem;
+                font-size: 1.02rem;
             }
 
             .banner-bottom-row {
-                gap: 16px;
+                min-height: 62px;
             }
 
             .banner-brand {
-                font-size: 1.05rem;
+                position: static;
+                margin-left: 12px;
+                font-size: 0.92rem;
                 letter-spacing: 1.5px;
             }
 
             .banner-logo {
-                width: 60px;
+                width: 58px;
             }
 
             .top-controls-bar {
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 10px 14px 4px;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 14px 6px;
                 gap: 8px;
+            }
+
+            .lang-bar {
+                gap: 6px;
+                margin-left: auto;
             }
 
             .gallery-trigger-btn,
             .lang-btn {
-                font-size: 0.82rem;
-                padding: 4px 12px;
+                font-size: 0.8rem;
+                padding: 4px 10px;
             }
 
             .main-content {
-                padding: 10px 14px 36px;
+                padding: 12px 14px 36px;
             }
 
             .hero-illustration {
