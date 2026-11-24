@@ -725,3 +725,55 @@
         function cambiarIdioma(lang) {
             currentLang = (lang === 'es') ? 'es' : 'en';
             var dict = i18n[currentLang];
+            var esEspañol = (currentLang === 'es');
+
+            document.documentElement.lang = dict.lang;
+            document.title = dict.title;
+            document.getElementById('heroHeadline').textContent = dict.heroHeadline;
+            document.getElementById('heroSubheadline').textContent = dict.heroSubheadline;
+            document.getElementById('guideCtaBtn').textContent = dict.guideCta;
+            document.getElementById('guideNote').textContent = dict.guideNote;
+            document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
+            document.getElementById('guideSubmitBtn').textContent = dict.guideSubmit;
+            document.getElementById('guideFeedback').textContent = '';
+
+            document.getElementById('delGreeting').textContent = dict.delGreeting;
+            document.getElementById('delThanks').textContent = dict.delThanks;
+            document.getElementById('delP1').textContent = dict.delP1;
+            document.getElementById('delP2').innerHTML = dict.delP2;
+            document.getElementById('delP3').textContent = dict.delP3;
+            document.getElementById('delP4').textContent = dict.delP4;
+            document.getElementById('deliveryDownloadBtn').textContent = dict.deliveryDownloadBtn;
+            document.getElementById('delP5').textContent = dict.delP5;
+            document.getElementById('delSign').innerHTML = dict.delSign;
+
+            document.getElementById('journeysHeading').textContent = dict.journeysHeading;
+            document.getElementById('j1Title').textContent = dict.j1Title;
+            document.getElementById('j1Tag').textContent = dict.j1Tag;
+            document.getElementById('j1Desc').textContent = dict.j1Desc;
+
+            document.getElementById('j2Title').textContent = dict.j2Title;
+            document.getElementById('j2Tag').textContent = dict.j2Tag;
+            document.getElementById('j2Desc').textContent = dict.j2Desc;
+
+            document.getElementById('j3Title').textContent = dict.j3Title;
+            document.getElementById('j3Tag').textContent = dict.j3Tag;
+            document.getElementById('j3Desc').textContent = dict.j3Desc;
+
+            document.getElementById('galleryHeading').textContent = dict.galleryHeading;
+            document.getElementById('irGaleria').textContent = dict.irGaleria;
+            document.getElementById('byBadge').textContent = dict.byBadge;
+            document.getElementById('mainIllustration').alt = dict.mainIllustrationAlt;
+            document.getElementById('authorBio').textContent = dict.authorBio;
+
+            var pills = document.querySelectorAll('#topicsBar .topic-pill');
+            for (var i = 0; i < pills.length; i++) {
+                pills[i].textContent = esEspañol ? pills[i].getAttribute('data-es') : pills[i].getAttribute('data-en');
+            }
+
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
+        }
+    </script>
+</body>
+</html>
