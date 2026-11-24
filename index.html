@@ -774,6 +774,9 @@
             document.getElementById('btnEn').classList.toggle('active', !esEspañol);
             document.getElementById('btnEs').classList.toggle('active', esEspañol);
         }
+
+        var navLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+        cambiarIdioma(navLang.startsWith('es') ? 'es' : 'en');
     </script>
 </body>
 </html>
