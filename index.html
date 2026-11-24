@@ -421,6 +421,15 @@
             border-bottom: 1px solid #C9963B;
         }
 
+        .crisis-note {
+            max-width: 620px;
+            margin-top: 18px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(122, 18, 18, 0.14);
+            font-size: 0.84rem;
+            color: #5E1414;
+        }
+
         @media (max-width: 720px) {
             .journeys-grid {
                 grid-template-columns: 1fr;
@@ -507,7 +516,7 @@
                     <label for="guideEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
                     <input type="email" name="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
                     <input type="hidden" name="_subject" value="Nuevo registro en DarrMilly — 7 preguntas para volver a empezar">
-                    <button type="submit" class="guide-submit" id="guideSubmitBtn">Notify me</button>
+                    <button type="submit" class="guide-submit" id="guideSubmitBtn">Send me the guide</button>
                     <p class="guide-feedback" id="guideFeedback"></p>
                 </form>
 
@@ -578,7 +587,7 @@
             </nav>
         </section>
 
-        <section class="author-section" aria-labelledby="authorHeading">
+        <footer class="author-section" aria-labelledby="authorHeading">
             <div class="center-art">
                 <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
             </div>
@@ -597,7 +606,11 @@
             <p class="contact-mail">
                 <a href="mailto:darrmillyoficial@gmail.com">darrmillyoficial@gmail.com</a>
             </p>
-        </section>
+
+            <p class="crisis-note" id="crisisNote">
+                988 Lifeline: free, confidential support in Spanish 24/7 — call 988 and press 2, or text AYUDA.
+            </p>
+        </footer>
     </main>
 
     <script>
@@ -610,7 +623,7 @@
                 guideCta: 'Get “7 Questions to Start Again”',
                 guideNote: 'Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.',
                 emailPlaceholder: 'you@example.com',
-                guideSubmit: 'Notify me',
+                guideSubmit: 'Send me the guide',
                 guideSending: 'Sending...',
                 guideSuccess: 'Your workbook is ready below.',
                 guideError: 'There was a problem submitting. Please try again.',
@@ -638,7 +651,8 @@
                 irGaleria: 'Gallery',
                 byBadge: 'by',
                 mainIllustrationAlt: 'Illustration of a woman sitting with a cup',
-                authorBio: 'DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed. I write these reflections as Maria Dunn to accompany people navigating loss or sudden change with honest words and writing prompts that help release fear and start again with experience.'
+                authorBio: 'DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed. I write these reflections as Maria Dunn to accompany people navigating loss or sudden change with honest words and writing prompts that help release fear and start again with experience.',
+                crisisNote: '988 Lifeline: free, confidential support in Spanish 24/7 — call 988 and press 2, or text AYUDA.'
             },
             es: {
                 lang: 'es',
@@ -648,7 +662,7 @@
                 guideCta: 'Recibe “7 preguntas para volver a empezar”',
                 guideNote: 'Déjame tu correo y te envío una guía breve con siete reflexiones y preguntas de escritura para ordenar lo que sientes cuando toca reconstruir. Sin ruido ni fórmulas mágicas.',
                 emailPlaceholder: 'tu@correo.com',
-                guideSubmit: 'Avísame',
+                guideSubmit: 'Envíame la guía',
                 guideSending: 'Enviando...',
                 guideSuccess: 'Tu cuaderno está listo aquí abajo.',
                 guideError: 'Hubo un problema al enviar. Intenta de nuevo.',
@@ -676,7 +690,8 @@
                 irGaleria: 'Galería',
                 byBadge: 'por',
                 mainIllustrationAlt: 'Ilustración de mujer en sillón con taza',
-                authorBio: 'DarrMilly nace de una certeza aprendida en el camino: la vida no ofrece garantías y a veces obliga a reconstruirlo todo, pero ninguna caída te deja con las manos vacías. Escribo estas reflexiones bajo la firma de Maria Dunn para acompañar a quienes atraviesan un cambio difícil o una pérdida, ofreciéndoles palabras honestas y preguntas de escritura que ayuden a soltar el miedo y volver a empezar con experiencia.'
+                authorBio: 'DarrMilly nace de una certeza aprendida en el camino: la vida no ofrece garantías y a veces obliga a reconstruirlo todo, pero ninguna caída te deja con las manos vacías. Escribo estas reflexiones bajo la firma de Maria Dunn para acompañar a quienes atraviesan un cambio difícil o una pérdida, ofreciéndoles palabras honestas y preguntas de escritura que ayuden a soltar el miedo y volver a empezar con experiencia.',
+                crisisNote: 'Línea 988: apoyo gratuito y confidencial en español las 24 horas — llama al 988 y marca 2, o envía AYUDA por mensaje.'
             }
         };
 
@@ -765,6 +780,7 @@
             document.getElementById('byBadge').textContent = dict.byBadge;
             document.getElementById('mainIllustration').alt = dict.mainIllustrationAlt;
             document.getElementById('authorBio').textContent = dict.authorBio;
+            document.getElementById('crisisNote').textContent = dict.crisisNote;
 
             var pills = document.querySelectorAll('#topicsBar .topic-pill');
             for (var i = 0; i < pills.length; i++) {
@@ -774,9 +790,6 @@
             document.getElementById('btnEn').classList.toggle('active', !esEspañol);
             document.getElementById('btnEs').classList.toggle('active', esEspañol);
         }
-
-        var navLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-        cambiarIdioma(navLang.startsWith('es') ? 'es' : 'en');
     </script>
 </body>
 </html>
