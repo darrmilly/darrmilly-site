@@ -76,13 +76,37 @@
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
         }
 
-        .lang-bar-below {
+        .top-controls-bar {
             width: 100%;
             max-width: 900px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px 6px;
+        }
+
+        .gallery-trigger-btn {
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 5px 16px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: transparent;
+            color: #7A1212;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .gallery-trigger-btn:hover {
+            background-color: #7A1212;
+            color: #E2B857;
+        }
+
+        .lang-bar {
+            display: flex;
             gap: 10px;
-            padding: 12px 24px 4px;
         }
 
         .lang-btn {
@@ -112,24 +136,40 @@
             padding: 12px 20px 48px;
         }
 
-        .hero-promise {
-            text-align: center;
-            max-width: 660px;
-            margin-bottom: 22px;
+        .center-art {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 6px 0 20px;
         }
 
-        .hero-headline {
-            font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+        .hero-illustration {
+            width: 210px;
+            max-width: 70%;
+            height: auto;
+            display: block;
+        }
+
+        .essence-below {
+            max-width: 620px;
+            padding: 4px 16px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .essence-text {
+            font-size: 1.02rem;
+            line-height: 1.75;
+            color: #4A1111;
+            margin-bottom: 10px;
+        }
+
+        .essence-signature {
+            font-size: 1rem;
+            font-style: italic;
             font-weight: 600;
             color: #7A1212;
-            line-height: 1.25;
-            margin-bottom: 12px;
-        }
-
-        .hero-subheadline {
-            font-size: clamp(1rem, 1.9vw, 1.15rem);
-            color: #5E1414;
-            margin-bottom: 18px;
+            letter-spacing: 0.4px;
         }
 
         .guide-box {
@@ -139,7 +179,7 @@
             border: 1px solid rgba(122, 18, 18, 0.22);
             border-radius: 14px;
             padding: 14px 18px;
-            margin: 0 auto 8px;
+            margin: 0 auto 14px;
             text-align: center;
         }
 
@@ -244,9 +284,45 @@
             margin: 14px 0;
         }
 
-        .journeys-section {
+        .gallery-panel {
+            display: none;
             width: 100%;
-            margin-top: 24px;
+            max-width: 740px;
+            margin: 16px auto 20px;
+            padding: 24px 20px;
+            background-color: #FFFDF9;
+            border: 1px solid rgba(122, 18, 18, 0.25);
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .gallery-panel.open {
+            display: block;
+        }
+
+        .gallery-panel-top {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .back-home-btn {
+            font-family: 'Lora', serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #7A1212;
+            background: transparent;
+            border: 1px solid rgba(122, 18, 18, 0.45);
+            border-radius: 999px;
+            padding: 5px 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .back-home-btn:hover {
+            background-color: #7A1212;
+            color: #E2B857;
+            border-color: #7A1212;
         }
 
         .section-heading {
@@ -258,57 +334,6 @@
             color: #7A1212;
         }
 
-        .journeys-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .journey-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-decoration: none;
-            color: #7A1212;
-            background-color: rgba(255, 253, 249, 0.7);
-            border: 1px solid rgba(122, 18, 18, 0.25);
-            border-top: 3px solid #C9963B;
-            border-radius: 10px;
-            padding: 16px;
-            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-        }
-
-        .journey-card:hover {
-            transform: translateY(-2px);
-            border-color: #7A1212;
-            background-color: #FFFDF9;
-        }
-
-        .journey-title {
-            font-size: 1.08rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #7A1212;
-        }
-
-        .journey-tag {
-            font-size: 0.88rem;
-            font-style: italic;
-            color: #8A4B14;
-            margin-bottom: 8px;
-        }
-
-        .journey-desc {
-            font-size: 0.92rem;
-            color: #4A1111;
-        }
-
-        .topics-section {
-            width: 100%;
-            margin-top: 26px;
-            text-align: center;
-        }
-
         .topics-bar {
             display: flex;
             flex-wrap: wrap;
@@ -318,11 +343,11 @@
         }
 
         .topic-pill {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #7A1212;
             text-decoration: none;
-            padding: 5px 14px;
+            padding: 6px 15px;
             border-radius: 999px;
             border: 1px solid rgba(122, 18, 18, 0.45);
             background-color: transparent;
@@ -335,67 +360,16 @@
             border-color: #7A1212;
         }
 
-        .author-section {
-            width: 100%;
-            margin-top: 34px;
-            padding-top: 28px;
-            border-top: 1px solid rgba(122, 18, 18, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .center-art {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .hero-illustration {
-            width: 210px;
-            max-width: 70%;
-            height: auto;
-            display: block;
-        }
-
-        .essence-below {
-            max-width: 620px;
-            padding: 8px 16px;
-            margin-bottom: 14px;
-        }
-
-        .essence-text {
-            font-size: 1.02rem;
-            line-height: 1.75;
-            color: #4A1111;
-            margin-bottom: 12px;
-        }
-
-        .essence-signature {
-            font-size: 1rem;
-            font-style: italic;
-            font-weight: 600;
-            color: #7A1212;
-            letter-spacing: 0.4px;
-        }
-
         .contact-mail {
-            margin-top: 10px;
+            margin-top: 24px;
             font-size: 0.9rem;
+            text-align: center;
         }
 
         .contact-mail a {
             color: #7A1212;
             text-decoration: none;
             border-bottom: 1px solid #C9963B;
-        }
-
-        @media (max-width: 720px) {
-            .journeys-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 650px) {
@@ -414,12 +388,14 @@
                 width: 64px;
             }
 
-            .lang-bar-below {
+            .top-controls-bar {
+                flex-wrap: wrap;
                 justify-content: center;
                 padding: 10px 14px 4px;
                 gap: 8px;
             }
 
+            .gallery-trigger-btn,
             .lang-btn {
                 font-size: 0.82rem;
                 padding: 4px 12px;
@@ -444,86 +420,63 @@
         </div>
     </header>
 
-    <div class="lang-bar-below" role="group" aria-label="Language switcher">
-        <button type="button" id="btnEn" class="lang-btn active" onclick="cambiarIdioma('en')">English</button>
-        <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
+    <div class="top-controls-bar">
+        <button type="button" id="galleryTriggerBtn" class="gallery-trigger-btn" onclick="openGallery()">Gallery</button>
+
+        <div class="lang-bar" role="group" aria-label="Language switcher">
+            <button type="button" id="btnEn" class="lang-btn active" onclick="cambiarIdioma('en')">English</button>
+            <button type="button" id="btnEs" class="lang-btn" onclick="cambiarIdioma('es')">Español</button>
+        </div>
     </div>
 
     <main class="main-content">
-        <section class="hero-promise" aria-labelledby="heroHeadline">
-            <h1 class="hero-headline" id="heroHeadline">Starting again without erasing what was lived.</h1>
-            <p class="hero-subheadline" id="heroSubheadline">
-                Reflections and writing prompts to name what hurts, honor your worth, and take the next step from experience, at your own pace.
+        <div class="center-art home-view">
+            <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
+        </div>
+
+        <section class="essence-below home-view" aria-label="Essence">
+            <p class="essence-text" id="essenceText">
+                DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed.
+            </p>
+            <p class="essence-signature" id="essenceSignature">By Maria Dunn</p>
+        </section>
+
+        <section class="guide-box home-view" aria-label="Guide">
+            <button type="button" class="guide-cta-btn" id="guideCtaBtn" onclick="toggleGuideForm()">
+                Get “7 Questions to Start Again”
+            </button>
+            <p class="guide-note" id="guideNote">
+                Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.
             </p>
 
-            <div class="guide-box">
-                <button type="button" class="guide-cta-btn" id="guideCtaBtn" onclick="toggleGuideForm()">
-                    Get “7 Questions to Start Again”
-                </button>
-                <p class="guide-note" id="guideNote">
-                    Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.
-                </p>
+            <form class="guide-form" id="guideForm" action="https://formspree.io/f/xzerkqgp" method="POST" onsubmit="handleGuideSubmit(event)">
+                <label for="guideEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
+                <input type="email" name="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
+                <input type="hidden" name="_subject" value="Nuevo registro en DarrMilly — 7 preguntas para volver a empezar">
+                <button type="submit" class="guide-submit" id="guideSubmitBtn">Send me the guide</button>
+                <p class="guide-feedback" id="guideFeedback"></p>
+            </form>
 
-                <form class="guide-form" id="guideForm" action="https://formspree.io/f/xzerkqgp" method="POST" onsubmit="handleGuideSubmit(event)">
-                    <label for="guideEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
-                    <input type="email" name="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
-                    <input type="hidden" name="_subject" value="Nuevo registro en DarrMilly — 7 preguntas para volver a empezar">
-                    <button type="submit" class="guide-submit" id="guideSubmitBtn">Send me the guide</button>
-                    <p class="guide-feedback" id="guideFeedback"></p>
-                </form>
-
-                <div class="guide-delivery-box" id="guideDeliveryBox" aria-live="polite">
-                    <p id="delGreeting">Hello,</p>
-                    <p id="delThanks">Thank you for being here.</p>
-                    <p id="delP1">Sometimes life changes in a way we didn’t expect. There are moments when we need to pause, listen to what we feel, and remember that even when something has shifted, our worth is still within us.</p>
-                    <p id="delP2">That is why I want to share <strong>7 Questions to Start Again</strong> with you, a brief reflection workbook I created to keep you company.</p>
-                    <p id="delP3">It is not a challenge—you do not have to answer all seven questions or find every answer today. You can start with the one that resonates most with you, write at your own pace, or come back whenever you need.</p>
-                    <p id="delP4">My wish is that these pages give you a moment to listen to yourself, recognize what you have learned, and discover that small step you can take from where you stand.</p>
-                    <div class="delivery-btn-wrap">
-                        <a href="7-preguntas-para-volver-a-empezar.pdf" download class="guide-cta-btn" id="deliveryDownloadBtn">GET MY 7 QUESTIONS</a>
-                    </div>
-                    <p id="delP5">Remember: you never start over from scratch. You carry everything you have learned with you, even what you are still trying to understand.</p>
-                    <p id="delSign">With warmth,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Starting again without erasing what was lived</p>
+            <div class="guide-delivery-box" id="guideDeliveryBox" aria-live="polite">
+                <p id="delGreeting">Hello,</p>
+                <p id="delThanks">Thank you for being here.</p>
+                <p id="delP1">Sometimes life changes in a way we didn’t expect. There are moments when we need to pause, listen to what we feel, and remember that even when something has shifted, our worth is still within us.</p>
+                <p id="delP2">That is why I want to share <strong>7 Questions to Start Again</strong> with you, a brief reflection workbook I created to keep you company.</p>
+                <p id="delP3">It is not a challenge—you do not have to answer all seven questions or find every answer today. You can start with the one that resonates most with you, write at your own pace, or come back whenever you need.</p>
+                <p id="delP4">My wish is that these pages give you a moment to listen to yourself, recognize what you have learned, and discover that small step you can take from where you stand.</p>
+                <div class="delivery-btn-wrap">
+                    <a href="7-preguntas-para-volver-a-empezar.pdf" download class="guide-cta-btn" id="deliveryDownloadBtn">GET MY 7 QUESTIONS</a>
                 </div>
+                <p id="delP5">Remember: you never start over from scratch. You carry everything you have learned with you, even what you are still trying to understand.</p>
+                <p id="delSign">With warmth,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Starting again without erasing what was lived</p>
             </div>
         </section>
 
-        <section class="journeys-section" aria-labelledby="journeysHeading">
-            <h2 class="section-heading" id="journeysHeading">Three ways to enter</h2>
-            <div class="journeys-grid">
-                <a href="despedida.html" class="journey-card">
-                    <div>
-                        <h3 class="journey-title" id="j1Title">Losses &amp; Farewells</h3>
-                        <p class="journey-tag" id="j1Tag">When the life you knew shifts.</p>
-                        <p class="journey-desc" id="j1Desc">
-                            Reflections for moving through grief—for someone who left, a relationship, or the future you pictured—without denying what hurts.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="motivacion.html" class="journey-card">
-                    <div>
-                        <h3 class="journey-title" id="j2Title">Self-Worth</h3>
-                        <p class="journey-tag" id="j2Tag">You are not what you lost.</p>
-                        <p class="journey-desc" id="j2Desc">
-                            Words to remember who you are when everything outside feels unsteady and hold your dignity beyond circumstances.
-                        </p>
-                    </div>
-                </a>
-
-                <a href="dolor.html" class="journey-card">
-                    <div>
-                        <h3 class="journey-title" id="j3Title">Starting Again</h3>
-                        <p class="journey-tag" id="j3Tag">You never return to square one.</p>
-                        <p class="journey-desc" id="j3Desc">
-                            Ideas and prompts to shake off fear, carry the knowledge each fall leaves behind, and build from where you stand today.
-                        </p>
-                    </div>
-                </a>
+        <section class="gallery-panel" id="galleryPanel" aria-labelledby="topicsHeading">
+            <div class="gallery-panel-top">
+                <button type="button" id="backFromGalleryBtn" class="back-home-btn" onclick="closeGallery()">← Back</button>
             </div>
-        </section>
 
-        <section class="topics-section" aria-labelledby="topicsHeading">
             <h2 class="section-heading" id="topicsHeading">Explore by theme</h2>
             <nav class="topics-bar" id="topicsBar" aria-label="Quote topics">
                 <a href="duelo.html" class="topic-pill" data-en="Grief" data-es="Duelo">Grief</a>
@@ -538,22 +491,9 @@
             </nav>
         </section>
 
-        <footer class="author-section" aria-label="Essence and author">
-            <div class="center-art">
-                <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
-            </div>
-
-            <div class="essence-below">
-                <p class="essence-text" id="essenceText">
-                    DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed.
-                </p>
-                <p class="essence-signature" id="essenceSignature">By Maria Dunn</p>
-            </div>
-
-            <p class="contact-mail">
-                <a href="mailto:darrmillyoficial@gmail.com">darrmillyoficial@gmail.com</a>
-            </p>
-        </footer>
+        <p class="contact-mail home-view">
+            <a href="mailto:darrmillyoficial@gmail.com">darrmillyoficial@gmail.com</a>
+        </p>
     </main>
 
     <script>
@@ -561,8 +501,11 @@
             en: {
                 lang: 'en',
                 title: 'DarrMilly — Starting Again Without Erasing What Was Lived',
-                heroHeadline: 'Starting again without erasing what was lived.',
-                heroSubheadline: 'Reflections and writing prompts to name what hurts, honor your worth, and take the next step from experience, at your own pace.',
+                galleryTrigger: 'Gallery',
+                backBtn: '← Back',
+                mainIllustrationAlt: 'Illustration of a woman sitting with a cup',
+                essenceText: 'DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed.',
+                essenceSignature: 'By Maria Dunn',
                 guideCta: 'Get “7 Questions to Start Again”',
                 guideNote: 'Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.',
                 emailPlaceholder: 'you@example.com',
@@ -580,26 +523,16 @@
                 deliveryDownloadBtn: 'GET MY 7 QUESTIONS',
                 delP5: 'Remember: you never start over from scratch. You carry everything you have learned with you, even what you are still trying to understand.',
                 delSign: 'With warmth,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Starting again without erasing what was lived',
-                journeysHeading: 'Three ways to enter',
-                j1Title: 'Losses & Farewells',
-                j1Tag: 'When the life you knew shifts.',
-                j1Desc: 'Reflections for moving through grief—for someone who left, a relationship, or the future you pictured—without denying what hurts.',
-                j2Title: 'Self-Worth',
-                j2Tag: 'You are not what you lost.',
-                j2Desc: 'Words to remember who you are when everything outside feels unsteady and hold your dignity beyond circumstances.',
-                j3Title: 'Starting Again',
-                j3Tag: 'You never return to square one.',
-                j3Desc: 'Ideas and prompts to shake off fear, carry the knowledge each fall leaves behind, and build from where you stand today.',
-                topicsHeading: 'Explore by theme',
-                mainIllustrationAlt: 'Illustration of a woman sitting with a cup',
-                essenceText: 'DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed.',
-                essenceSignature: 'By Maria Dunn'
+                topicsHeading: 'Explore by theme'
             },
             es: {
                 lang: 'es',
                 title: 'DarrMilly — Volver a empezar sin borrar lo vivido',
-                heroHeadline: 'Volver a empezar sin borrar lo vivido.',
-                heroSubheadline: 'Frases y reflexiones para nombrar lo que duele, recordar tu valor propio y dar el siguiente paso desde la experiencia, a tu ritmo.',
+                galleryTrigger: 'Galería',
+                backBtn: '← Volver',
+                mainIllustrationAlt: 'Ilustración de mujer en sillón con taza',
+                essenceText: 'DarrMilly nace de una convicción aprendida en el camino: la vida no ofrece garantías y a veces pide reconstruirlo todo, pero ninguna caída te deja con las manos vacías.',
+                essenceSignature: 'Por Maria Dunn',
                 guideCta: 'Recibe “7 preguntas para volver a empezar”',
                 guideNote: 'Déjame tu correo y te envío una guía breve con siete reflexiones y preguntas de escritura para ordenar lo que sientes cuando toca reconstruir. Sin ruido ni fórmulas mágicas.',
                 emailPlaceholder: 'tu@correo.com',
@@ -617,24 +550,33 @@
                 deliveryDownloadBtn: 'QUIERO MIS 7 PREGUNTAS',
                 delP5: 'Recuerda: no vuelves a empezar desde cero. Llevas contigo todo lo que has aprendido, incluso aquello que todavía estás intentando comprender.',
                 delSign: 'Con cariño,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Volver a empezar sin borrar lo vivido',
-                journeysHeading: 'Tres recorridos para comenzar',
-                j1Title: 'Pérdidas y despedidas',
-                j1Tag: 'Para cuando cambia la vida que conocías.',
-                j1Desc: 'Reflexiones para atravesar el duelo —por alguien que se fue, una relación o el futuro que imaginabas— sin negar lo que duele.',
-                j2Title: 'Valor propio',
-                j2Tag: 'No eres lo que perdiste.',
-                j2Desc: 'Palabras para recordar quién eres cuando todo afuera parece moverse y sostener tu dignidad más allá de las circunstancias.',
-                j3Title: 'Volver a empezar',
-                j3Tag: 'Nunca regresas al punto de partida.',
-                j3Desc: 'Ideas y preguntas para sacudirte el miedo, rescatar el conocimiento que te dejó cada caída y construir desde donde estás hoy.',
-                topicsHeading: 'Explorar por tema',
-                mainIllustrationAlt: 'Ilustración de mujer en sillón con taza',
-                essenceText: 'DarrMilly nace de una convicción aprendida en el camino: la vida no ofrece garantías y a veces pide reconstruirlo todo, pero ninguna caída te deja con las manos vacías.',
-                essenceSignature: 'Por Maria Dunn'
+                topicsHeading: 'Explorar por tema'
             }
         };
 
         var currentLang = 'en';
+
+        function openGallery() {
+            var panel = document.getElementById('galleryPanel');
+            var homeItems = document.querySelectorAll('.home-view');
+            if (panel) {
+                panel.classList.add('open');
+                homeItems.forEach(function (el) {
+                    el.style.display = 'none';
+                });
+            }
+        }
+
+        function closeGallery() {
+            var panel = document.getElementById('galleryPanel');
+            var homeItems = document.querySelectorAll('.home-view');
+            if (panel) {
+                panel.classList.remove('open');
+                homeItems.forEach(function (el) {
+                    el.style.display = '';
+                });
+            }
+        }
 
         function toggleGuideForm() {
             var form = document.getElementById('guideForm');
@@ -683,8 +625,17 @@
 
             document.documentElement.lang = dict.lang;
             document.title = dict.title;
-            document.getElementById('heroHeadline').textContent = dict.heroHeadline;
-            document.getElementById('heroSubheadline').textContent = dict.heroSubheadline;
+            document.getElementById('galleryTriggerBtn').textContent = dict.galleryTrigger;
+            document.getElementById('backFromGalleryBtn').textContent = dict.backBtn;
+
+            var illustration = document.getElementById('mainIllustration');
+            if (illustration) {
+                illustration.alt = dict.mainIllustrationAlt;
+            }
+
+            document.getElementById('essenceText').textContent = dict.essenceText;
+            document.getElementById('essenceSignature').textContent = dict.essenceSignature;
+
             document.getElementById('guideCtaBtn').textContent = dict.guideCta;
             document.getElementById('guideNote').textContent = dict.guideNote;
             document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
@@ -701,17 +652,6 @@
             document.getElementById('delP5').textContent = dict.delP5;
             document.getElementById('delSign').innerHTML = dict.delSign;
 
-            document.getElementById('journeysHeading').textContent = dict.journeysHeading;
-            document.getElementById('j1Title').textContent = dict.j1Title;
-            document.getElementById('j1Tag').textContent = dict.j1Tag;
-            document.getElementById('j1Desc').textContent = dict.j1Desc;
-            document.getElementById('j2Title').textContent = dict.j2Title;
-            document.getElementById('j2Tag').textContent = dict.j2Tag;
-            document.getElementById('j2Desc').textContent = dict.j2Desc;
-            document.getElementById('j3Title').textContent = dict.j3Title;
-            document.getElementById('j3Tag').textContent = dict.j3Tag;
-            document.getElementById('j3Desc').textContent = dict.j3Desc;
-
             document.getElementById('topicsHeading').textContent = dict.topicsHeading;
 
             var pills = document.querySelectorAll('.topic-pill');
@@ -719,14 +659,6 @@
                 var text = esEspañol ? pill.getAttribute('data-es') : pill.getAttribute('data-en');
                 if (text) pill.textContent = text;
             });
-
-            var illustration = document.getElementById('mainIllustration');
-            if (illustration) {
-                illustration.alt = dict.mainIllustrationAlt;
-            }
-
-            document.getElementById('essenceText').textContent = dict.essenceText;
-            document.getElementById('essenceSignature').textContent = dict.essenceSignature;
 
             document.getElementById('btnEn').classList.toggle('active', !esEspañol);
             document.getElementById('btnEs').classList.toggle('active', esEspañol);
