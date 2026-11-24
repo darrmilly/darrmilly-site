@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DarrMilly — Calm in the Chaos</title>
-    <meta name="description" content="DarrMilly — Calm in the Chaos. Quotes on love, pain, farewell, encouragement, faith, dedications, rest in peace, and anniversary.">
+    <title>DarrMilly — Starting Again Without Erasing What Was Lived</title>
+    <meta name="description" content="DarrMilly by Maria Dunn — Reflections and writing prompts to name what hurts, honor your worth, and start again with experience.">
 
     <!-- Vista previa para redes sociales y mensajería -->
-    <meta property="og:title" content="DarrMilly — Calm in the Chaos" />
-    <meta property="og:description" content="Quotes on love, pain, farewell, encouragement, faith, dedications, rest in peace, and anniversary." />
+    <meta property="og:title" content="DarrMilly — Starting Again Without Erasing What Was Lived" />
+    <meta property="og:description" content="Reflections and writing prompts to name what hurts, honor your worth, and start again with experience." />
     <meta property="og:image" content="https://www.darrmilly.com/portada-darrmilly.png" />
     <meta property="og:url" content="https://www.darrmilly.com/" />
     <meta property="og:type" content="website" />
@@ -32,13 +31,14 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .wave-banner {
             position: relative;
             width: 100%;
             max-width: 900px;
-            min-height: 205px;
+            min-height: 195px;
             background-image: url("banner-ola.png");
             background-size: cover;
             background-position: center bottom;
@@ -48,7 +48,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 24px 20px 44px;
+            padding: 22px 20px 42px;
         }
 
         .banner-content {
@@ -59,18 +59,18 @@
             align-items: center;
         }
 
-        .banner-title {
+        .banner-brand {
             color: #E3B64E;
-            font-size: clamp(1.25rem, 3vw, 2.1rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.75rem);
             font-weight: 400;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             margin-bottom: 10px;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
         }
 
         .banner-logo {
-            width: 92px;
-            max-width: 28%;
+            width: 84px;
+            max-width: 26%;
             height: auto;
             display: block;
             filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
@@ -87,7 +87,7 @@
 
         .lang-btn {
             font-family: 'Lora', serif;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             padding: 5px 15px;
             border-radius: 999px;
             border: 1.5px solid #7A1212;
@@ -105,58 +105,178 @@
 
         .main-content {
             width: 100%;
-            max-width: 760px;
+            max-width: 780px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10px 18px 34px;
+            padding: 12px 20px 48px;
         }
 
-        .center-art {
+        .hero-promise {
+            text-align: center;
+            max-width: 660px;
+            margin-bottom: 24px;
+        }
+
+        .hero-headline {
+            font-size: clamp(1.65rem, 3.8vw, 2.35rem);
+            font-weight: 600;
+            color: #7A1212;
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .hero-subheadline {
+            font-size: clamp(1rem, 1.9vw, 1.15rem);
+            color: #5E1414;
+            margin-bottom: 22px;
+        }
+
+        .guide-box {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            margin: 8px 0 20px;
+            max-width: 540px;
+            background-color: rgba(122, 18, 18, 0.04);
+            border: 1px solid rgba(122, 18, 18, 0.22);
+            border-radius: 14px;
+            padding: 18px 20px;
+            margin: 0 auto 10px;
+            text-align: center;
         }
 
-        .hero-illustration {
-            width: 225px;
-            max-width: 70%;
-            height: auto;
-            display: block;
+        .guide-cta-btn {
+            display: inline-block;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: #7A1212;
+            color: #E3B64E;
+            text-decoration: none;
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
 
-        .signature {
-            display: flex;
-            align-items: center;
+        .guide-cta-btn:hover {
+            background-color: #5D0D0D;
+            border-color: #C9963B;
+        }
+
+        .guide-note {
+            font-size: 0.9rem;
+            color: #5E1414;
+            margin-top: 10px;
+        }
+
+        .guide-form {
+            display: none;
+            flex-wrap: wrap;
             justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .guide-form.open {
+            display: flex;
+        }
+
+        .guide-input {
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            padding: 9px 14px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: #FFFDF9;
+            color: #7A1212;
+            min-width: 220px;
+            flex: 1 1 210px;
+            max-width: 300px;
+        }
+
+        .guide-submit {
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: #7A1212;
+            color: #E3B64E;
+            cursor: pointer;
+        }
+
+        .guide-feedback {
+            width: 100%;
+            font-size: 0.88rem;
+            font-style: italic;
+            color: #7A1212;
+            margin-top: 8px;
+            min-height: 1.2em;
+        }
+
+        .journeys-section {
+            width: 100%;
+            margin-top: 28px;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            color: #7A1212;
+        }
+
+        .journeys-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
         }
 
-        .by-circle {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background-color: #7A1212;
-            color: #E3B64E;
-            font-style: italic;
-            font-size: 1.15rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .author {
-            font-size: 1.45rem;
-            font-weight: 400;
-            letter-spacing: 1px;
+        .journey-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
             color: #7A1212;
-            line-height: 1.2;
+            background-color: rgba(255, 253, 249, 0.7);
+            border: 1px solid rgba(122, 18, 18, 0.25);
+            border-top: 3px solid #C9963B;
+            border-radius: 10px;
+            padding: 16px;
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
         }
 
-        .explore-wrap {
-            margin-top: 20px;
+        .journey-card:hover {
+            transform: translateY(-2px);
+            border-color: #7A1212;
+            background-color: #FFFDF9;
+        }
+
+        .journey-title {
+            font-size: 1.08rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #7A1212;
+        }
+
+        .journey-tag {
+            font-size: 0.88rem;
+            font-style: italic;
+            color: #8A4B14;
+            margin-bottom: 8px;
+        }
+
+        .journey-desc {
+            font-size: 0.92rem;
+            color: #4A1111;
+        }
+
+        .gallery-block {
+            width: 100%;
+            margin-top: 30px;
             text-align: center;
         }
 
@@ -164,6 +284,7 @@
             display: inline-block;
             color: #7A1212;
             font-weight: 600;
+            font-size: 1.02rem;
             text-decoration: none;
             border-bottom: 1.5px solid #C9963B;
             padding: 6px 16px;
@@ -200,20 +321,87 @@
             border-color: #7A1212;
         }
 
+        .author-section {
+            width: 100%;
+            margin-top: 34px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(122, 18, 18, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .center-art {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .hero-illustration {
+            width: 210px;
+            max-width: 70%;
+            height: auto;
+            display: block;
+        }
+
+        .signature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .by-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #7A1212;
+            color: #E3B64E;
+            font-style: italic;
+            font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .author {
+            font-size: 1.35rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #7A1212;
+            line-height: 1.2;
+        }
+
+        .author-bio {
+            max-width: 620px;
+            font-size: 0.98rem;
+            color: #4A1111;
+        }
+
+        @media (max-width: 720px) {
+            .journeys-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 650px) {
             .wave-banner {
                 min-height: 145px;
                 padding: 16px 14px 28px;
             }
 
-            .banner-title {
-                font-size: 1.15rem;
-                letter-spacing: 1.2px;
+            .banner-brand {
+                font-size: 1.05rem;
+                letter-spacing: 1.5px;
                 margin-bottom: 6px;
             }
 
             .banner-logo {
-                width: 66px;
+                width: 64px;
             }
 
             .lang-bar-below {
@@ -228,33 +416,21 @@
             }
 
             .main-content {
-                padding: 6px 14px 24px;
-            }
-
-            .center-art {
-                margin: 4px 0 14px;
+                padding: 10px 14px 36px;
             }
 
             .hero-illustration {
                 width: 155px;
             }
 
-            .signature {
-                gap: 10px;
-            }
-
             .by-circle {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
+                width: 36px;
+                height: 36px;
+                font-size: 0.95rem;
             }
 
             .author {
-                font-size: 1.2rem;
-            }
-
-            .explore-wrap {
-                margin-top: 14px;
+                font-size: 1.18rem;
             }
         }
     </style>
@@ -263,7 +439,7 @@
 
     <header class="wave-banner">
         <div class="banner-content">
-            <h1 class="banner-title" id="bannerTitle">WELCOME TO DARRMILLY</h1>
+            <p class="banner-brand">DARRMILLY</p>
             <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
         </div>
     </header>
@@ -274,48 +450,205 @@
     </div>
 
     <main class="main-content">
-        <section class="center-art">
-            <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
+        <section class="hero-promise" aria-labelledby="heroHeadline">
+            <h1 class="hero-headline" id="heroHeadline">Starting again without erasing what was lived.</h1>
+            <p class="hero-subheadline" id="heroSubheadline">
+                Reflections and writing prompts to name what hurts, honor your worth, and take the next step from experience, at your own pace.
+            </p>
+
+            <div class="guide-box">
+                <button type="button" class="guide-cta-btn" id="guideCtaBtn" onclick="toggleGuideForm()">
+                    Get “7 Questions to Start Again”
+                </button>
+                <p class="guide-note" id="guideNote">
+                    Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.
+                </p>
+
+                <!-- Sustituye action="#" por el enlace de tu formulario o correo (Formspree, Mailchimp, etc.) -->
+                <form class="guide-form" id="guideForm" action="#" method="POST" onsubmit="handleGuideSubmit(event)">
+                    <label for="guideEmail" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
+                    <input type="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
+                    <button type="submit" class="guide-submit" id="guideSubmitBtn">Notify me</button>
+                    <p class="guide-feedback" id="guideFeedback"></p>
+                </form>
+            </div>
         </section>
 
-        <footer class="signature">
-            <span class="by-circle" id="byBadge">by</span>
-            <div class="signature-text">
-                <p class="author">MARIA DUNN</p>
+        <section class="journeys-section" aria-labelledby="journeysHeading">
+            <h2 class="section-heading" id="journeysHeading">Three ways to enter</h2>
+            <div class="journeys-grid">
+                <a href="despedida.html" class="journey-card">
+                    <div>
+                        <h3 class="journey-title" id="j1Title">Losses &amp; Farewells</h3>
+                        <p class="journey-tag" id="j1Tag">When the life you knew shifts.</p>
+                        <p class="journey-desc" id="j1Desc">
+                            Reflections for moving through grief—for someone who left, a relationship, or the future you pictured—without denying what hurts.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="motivacion.html" class="journey-card">
+                    <div>
+                        <h3 class="journey-title" id="j2Title">Self-Worth</h3>
+                        <p class="journey-tag" id="j2Tag">You are not what you lost.</p>
+                        <p class="journey-desc" id="j2Desc">
+                            Words to remember who you are when everything outside feels unsteady and hold your dignity beyond circumstances.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="dolor.html" class="journey-card">
+                    <div>
+                        <h3 class="journey-title" id="j3Title">Starting Again</h3>
+                        <p class="journey-tag" id="j3Tag">You never return to square one.</p>
+                        <p class="journey-desc" id="j3Desc">
+                            Ideas and prompts to shake off fear, carry the knowledge each fall leaves behind, and build from where you stand today.
+                        </p>
+                    </div>
+                </a>
             </div>
-        </footer>
+        </section>
 
-        <div class="explore-wrap">
+        <section class="gallery-block" aria-labelledby="galleryHeading">
+            <h2 class="section-heading" id="galleryHeading">Full quote gallery &amp; themes</h2>
             <a href="gallery.html" id="irGaleria" class="explore-link">Gallery</a>
-        </div>
 
-        <nav class="topics-bar" id="topicsBar" aria-label="Quote topics">
-            <a href="amor.html" class="topic-pill" data-en="Love" data-es="Amor">Love</a>
-            <a href="dolor.html" class="topic-pill" data-en="Pain" data-es="Dolor">Pain</a>
-            <a href="despedida.html" class="topic-pill" data-en="Farewell" data-es="Despedida">Farewell</a>
-            <a href="motivacion.html" class="topic-pill" data-en="Encouragement" data-es="Motivación">Encouragement</a>
-            <a href="fe.html" class="topic-pill" data-en="Faith" data-es="Fe">Faith</a>
-            <a href="dedicatorias.html" class="topic-pill" data-en="Dedications" data-es="Dedicatorias">Dedications</a>
-            <a href="descansa-en-paz.html" class="topic-pill" data-en="Rest in Peace" data-es="Descansa en Paz">Rest in Peace</a>
-            <a href="aniversario.html" class="topic-pill" data-en="Anniversary" data-es="Aniversario">Anniversary</a>
-        </nav>
+            <nav class="topics-bar" id="topicsBar" aria-label="Quote topics">
+                <a href="amor.html" class="topic-pill" data-en="Love" data-es="Amor">Love</a>
+                <a href="dolor.html" class="topic-pill" data-en="Pain" data-es="Dolor">Pain</a>
+                <a href="despedida.html" class="topic-pill" data-en="Farewell" data-es="Despedida">Farewell</a>
+                <a href="motivacion.html" class="topic-pill" data-en="Encouragement" data-es="Motivación">Encouragement</a>
+                <a href="fe.html" class="topic-pill" data-en="Faith" data-es="Fe">Faith</a>
+                <a href="dedicatorias.html" class="topic-pill" data-en="Dedications" data-es="Dedicatorias">Dedications</a>
+                <a href="descansa-en-paz.html" class="topic-pill" data-en="Rest in Peace" data-es="Descansa en Paz">Rest in Peace</a>
+                <a href="aniversario.html" class="topic-pill" data-en="Anniversary" data-es="Aniversario">Anniversary</a>
+            </nav>
+        </section>
+
+        <section class="author-section" aria-labelledby="authorHeading">
+            <div class="center-art">
+                <img src="ilustracion.png" id="mainIllustration" alt="Illustration of a woman sitting with a cup" class="hero-illustration">
+            </div>
+
+            <div class="signature">
+                <span class="by-circle" id="byBadge">by</span>
+                <div class="signature-text">
+                    <p class="author" id="authorHeading">MARIA DUNN</p>
+                </div>
+            </div>
+
+            <p class="author-bio" id="authorBio">
+                DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed. I write these reflections as Maria Dunn to accompany people navigating loss or sudden change with honest words and writing prompts that help release fear and start again with experience.
+            </p>
+        </section>
     </main>
 
     <script>
-        function cambiarIdioma(lang) {
-            var esEspañol = (lang === 'es');
+        var i18n = {
+            en: {
+                lang: 'en',
+                title: 'DarrMilly — Starting Again Without Erasing What Was Lived',
+                heroHeadline: 'Starting again without erasing what was lived.',
+                heroSubheadline: 'Reflections and writing prompts to name what hurts, honor your worth, and take the next step from experience, at your own pace.',
+                guideCta: 'Get “7 Questions to Start Again”',
+                guideNote: 'Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.',
+                emailPlaceholder: 'you@example.com',
+                guideSubmit: 'Notify me',
+                guideSent: 'Thank you. Connect your form endpoint to deliver “7 Questions to Start Again” automatically.',
+                journeysHeading: 'Three ways to enter',
+                j1Title: 'Losses & Farewells',
+                j1Tag: 'When the life you knew shifts.',
+                j1Desc: 'Reflections for moving through grief—for someone who left, a relationship, or the future you pictured—without denying what hurts.',
+                j2Title: 'Self-Worth',
+                j2Tag: 'You are not what you lost.',
+                j2Desc: 'Words to remember who you are when everything outside feels unsteady and hold your dignity beyond circumstances.',
+                j3Title: 'Starting Again',
+                j3Tag: 'You never return to square one.',
+                j3Desc: 'Ideas and prompts to shake off fear, carry the knowledge each fall leaves behind, and build from where you stand today.',
+                galleryHeading: 'Full quote gallery & themes',
+                irGaleria: 'Gallery',
+                byBadge: 'by',
+                mainIllustrationAlt: 'Illustration of a woman sitting with a cup',
+                authorBio: 'DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed. I write these reflections as Maria Dunn to accompany people navigating loss or sudden change with honest words and writing prompts that help release fear and start again with experience.'
+            },
+            es: {
+                lang: 'es',
+                title: 'DarrMilly — Volver a empezar sin borrar lo vivido',
+                heroHeadline: 'Volver a empezar sin borrar lo vivido.',
+                heroSubheadline: 'Frases y reflexiones para nombrar lo que duele, recordar tu valor propio y dar el siguiente paso desde la experiencia, a tu ritmo.',
+                guideCta: 'Recibe “7 preguntas para volver a empezar”',
+                guideNote: 'Déjame tu correo y te envío una guía breve con siete reflexiones y preguntas de escritura para ordenar lo que sientes cuando toca reconstruir. Sin ruido ni fórmulas mágicas.',
+                emailPlaceholder: 'tu@correo.com',
+                guideSubmit: 'Avísame',
+                guideSent: 'Gracias. Conecta tu enlace de formulario para enviar “7 preguntas para volver a empezar” automáticamente.',
+                journeysHeading: 'Tres recorridos para comenzar',
+                j1Title: 'Pérdidas y despedidas',
+                j1Tag: 'Para cuando cambia la vida que conocías.',
+                j1Desc: 'Reflexiones para atravesar el duelo —por alguien que se fue, una relación o el futuro que imaginabas— sin negar lo que duele.',
+                j2Title: 'Valor propio',
+                j2Tag: 'No eres lo que perdiste.',
+                j2Desc: 'Palabras para recordar quién eres cuando todo afuera parece moverse y sostener tu dignidad más allá de las circunstancias.',
+                j3Title: 'Volver a empezar',
+                j3Tag: 'Nunca regresas al punto de partida.',
+                j3Desc: 'Ideas y preguntas para sacudirte el miedo, rescatar el conocimiento que te dejó cada caída y construir desde donde estás hoy.',
+                galleryHeading: 'Galería completa y temas',
+                irGaleria: 'Galería',
+                byBadge: 'por',
+                mainIllustrationAlt: 'Ilustración de mujer en sillón con taza',
+                authorBio: 'DarrMilly nace de una certeza aprendida en el camino: la vida no ofrece garantías y a veces obliga a reconstruirlo todo, pero ninguna caída te deja con las manos vacías. Escribo estas reflexiones bajo la firma de Maria Dunn para acompañar a quienes atraviesan un cambio difícil o una pérdida, ofreciéndoles palabras honestas y preguntas de escritura que ayuden a soltar el miedo y volver a empezar con experiencia.'
+            }
+        };
 
-            document.documentElement.lang = esEspañol ? 'es' : 'en';
-            document.getElementById('bannerTitle').textContent = esEspañol
-                ? 'BIENVENIDO A DARRMILLY'
-                : 'WELCOME TO DARRMILLY';
-            document.getElementById('byBadge').textContent = esEspañol ? 'por' : 'by';
-            document.getElementById('irGaleria').textContent = esEspañol
-                ? 'Galería'
-                : 'Gallery';
-            document.getElementById('mainIllustration').alt = esEspañol
-                ? 'Ilustración de mujer en sillón con taza'
-                : 'Illustration of a woman sitting with a cup';
+        var currentLang = 'en';
+
+        function toggleGuideForm() {
+            var form = document.getElementById('guideForm');
+            form.classList.toggle('open');
+            if (form.classList.contains('open')) {
+                document.getElementById('guideEmail').focus();
+            }
+        }
+
+        function handleGuideSubmit(event) {
+            event.preventDefault();
+            var feedback = document.getElementById('guideFeedback');
+            feedback.textContent = i18n[currentLang].guideSent;
+            document.getElementById('guideEmail').value = '';
+        }
+
+        function cambiarIdioma(lang) {
+            currentLang = (lang === 'es') ? 'es' : 'en';
+            var dict = i18n[currentLang];
+            var esEspañol = (currentLang === 'es');
+
+            document.documentElement.lang = dict.lang;
+            document.title = dict.title;
+            document.getElementById('heroHeadline').textContent = dict.heroHeadline;
+            document.getElementById('heroSubheadline').textContent = dict.heroSubheadline;
+            document.getElementById('guideCtaBtn').textContent = dict.guideCta;
+            document.getElementById('guideNote').textContent = dict.guideNote;
+            document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
+            document.getElementById('guideSubmitBtn').textContent = dict.guideSubmit;
+            document.getElementById('guideFeedback').textContent = '';
+
+            document.getElementById('journeysHeading').textContent = dict.journeysHeading;
+            document.getElementById('j1Title').textContent = dict.j1Title;
+            document.getElementById('j1Tag').textContent = dict.j1Tag;
+            document.getElementById('j1Desc').textContent = dict.j1Desc;
+
+            document.getElementById('j2Title').textContent = dict.j2Title;
+            document.getElementById('j2Tag').textContent = dict.j2Tag;
+            document.getElementById('j2Desc').textContent = dict.j2Desc;
+
+            document.getElementById('j3Title').textContent = dict.j3Title;
+            document.getElementById('j3Tag').textContent = dict.j3Tag;
+            document.getElementById('j3Desc').textContent = dict.j3Desc;
+
+            document.getElementById('galleryHeading').textContent = dict.galleryHeading;
+            document.getElementById('irGaleria').textContent = dict.irGaleria;
+            document.getElementById('byBadge').textContent = dict.byBadge;
+            document.getElementById('mainIllustration').alt = dict.mainIllustrationAlt;
+            document.getElementById('authorBio').textContent = dict.authorBio;
 
             document.querySelectorAll('.topic-pill').forEach(function(el) {
                 el.textContent = esEspañol ? el.getAttribute('data-es') : el.getAttribute('data-en');
@@ -325,7 +658,7 @@
             document.getElementById('btnEs').classList.toggle('active', esEspañol);
 
             try {
-                localStorage.setItem('darrmilly_lang', lang);
+                localStorage.setItem('darrmilly_lang', currentLang);
             } catch (e) {}
         }
 
