@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarrMilly — Grief &amp; Special Dates</title>
+    <meta name="description" content="Bilingual reflections and quotes by Maria Dunn for navigating grief, absence, and special dates without erasing what was lived.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #F6EFE6;
+            font-family: 'Lora', serif;
+            color: #7A1212;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            line-height: 1.65;
+        }
+
+        .wave-banner {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            min-height: 185px;
+            background-image: url("banner-ola.png");
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px 20px 38px;
+        }
+
+        .banner-brand {
+            color: #E3B64E;
+            font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+        }
+
+        .banner-logo {
+            width: 78px;
+            max-width: 26%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+        }
+
+        .top-bar {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 12px 24px 4px;
+        }
+
+        .back-link {
+            color: #7A1212;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #C9963B;
+            padding-bottom: 2px;
+        }
+
+        .lang-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn,
+        .filter-btn {
+            font-family: 'Lora', serif;
+            font-size: 0.88rem;
+            padding: 5px 14px;
+            border-radius: 999px;
+            border: 1.5px solid #7A1212;
+            background-color: transparent;
+            color: #7A1212;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover,
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: #7A1212;
+            color: #E2B857;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 780px;
+            padding: 16px 20px 48px;
+        }
+
+        .page-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 22px;
+        }
+
+        .page-title {
+            font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+            font-weight: 600;
+            line-height: 1.25;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 1rem;
+            color: #5E1414;
+        }
+
+        .filters-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .quotes-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .quote-card {
+            background-color: rgba(255, 253, 249, 0.82);
+            border: 1px solid rgba(122, 18, 18, 0.22);
+            border-left: 4px solid #C9963B;
+            border-radius: 10px;
+            padding: 16px 18px;
+        }
+
+        .quote-category {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #8A4B14;
+            margin-bottom: 6px;
+        }
+
+        .quote-text {
+            font-size: 1.02rem;
+            color: #4A1111;
+        }
+
+        .footer-box {
+            margin-top: 34px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(122, 18, 18, 0.2);
+            text-align: center;
+            font-size: 0.88rem;
+            color: #5E1414;
+        }
+
+        .crisis-note {
+            max-width: 620px;
+            margin: 14px auto 0;
+            padding-top: 10px;
+            border-top: 1px solid rgba(122, 18, 18, 0.14);
+            font-size: 0.84rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="wave-banner">
+        <p class="banner-brand">DARRMILLY</p>
+        <img src="logo-dm.png" alt="Logo DM" class="banner-logo">
+    </header>
+
+    <div class="top-bar">
+        <a href="index.html" class="back-link" id="backLink">← Back to home</a>
+        <div class="lang-group" role="group" aria-label="Language">
+            <button type="button" id="btnEn" class="lang-btn active" onclick="setLang('en')">English</button>
+            <button type="button" id="btnEs" class="lang-btn" onclick="setLang('es')">Español</button>
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="page-header">
+            <h1 class="page-title" id="pageTitle">Grief &amp; Special Dates</h1>
+            <p class="page-subtitle" id="pageSubtitle">
+                Words for getting through marked dates on the calendar when someone you love is missing, without denying love or grief.
+            </p>
+        </section>
+
+        <nav class="filters-bar" id="filtersBar" aria-label="Filter by date"></nav>
+
+        <section class="quotes-list" id="quotesList" aria-live="polite"></section>
+
+        <footer class="footer-box">
+            <p id="footerBrand">DarrMilly · Starting again without erasing what was lived — Maria Dunn</p>
+            <p class="crisis-note" id="crisisNote">
+                988 Lifeline: free, confidential support 24/7. Call or text 988 (para español, marca 2 o envía AYUDA).
+            </p>
+        </footer>
+    </main>
+
+    <script src="frases-duelo.js"></script>
+    <script>
+        var listaFrases = window.frasesDuelo || window.frasesAniversario || [];
+
+        var categories = [
+            { id: 'all', en: 'All', es: 'Todas' },
+            { id: 'holidays', en: 'Christmas & New Year', es: 'Navidad y Año Nuevo' },
+            { id: 'birthdays', en: 'Birthdays', es: 'Cumpleaños' },
+            { id: 'anniversaries', en: 'Anniversaries & Valentine’s', es: 'Aniversarios y San Valentín' },
+            { id: 'seasons', en: 'Gatherings & Seasons', es: 'Reuniones y estaciones' },
+            { id: 'milestones', en: 'Loss & Special Dates', es: 'Partida y fechas clave' }
+        ];
+
+        var activeLang = 'en';
+        var activeCat = 'all';
+
+        function getCategoryLabel(catId) {
+            if (!catId) return '';
+            for (var i = 0; i < categories.length; i++) {
+                if (categories[i].id === catId) {
+                    return categories[i][activeLang];
+                }
+            }
+            return '';
+        }
+
+        function hasCategories() {
+            for (var i = 0; i < listaFrases.length; i++) {
+                if (listaFrases[i].cat) return true;
+            }
+            return false;
+        }
+
+        function renderFilters() {
+            var bar = document.getElementById('filtersBar');
+            bar.innerHTML = '';
+            if (!hasCategories()) {
+                bar.style.display = 'none';
+                return;
+            }
+            bar.style.display = 'flex';
+            for (var i = 0; i < categories.length; i++) {
+                var c = categories[i];
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'filter-btn' + (c.id === activeCat ? ' active' : '');
+                btn.textContent = c[activeLang];
+                btn.setAttribute('data-cat', c.id);
+                btn.onclick = function () {
+                    activeCat = this.getAttribute('data-cat');
+                    renderFilters();
+                    renderQuotes();
+                };
+                bar.appendChild(btn);
+            }
+        }
+
+        function renderQuotes() {
+            var list = document.getElementById('quotesList');
+            list.innerHTML = '';
+            for (var i = 0; i < listaFrases.length; i++) {
+                var p = listaFrases[i];
+                if (activeCat !== 'all' && p.cat && p.cat !== activeCat) continue;
+
+                var card = document.createElement('article');
+                card.className = 'quote-card';
+
+                var catLabel = getCategoryLabel(p.cat);
+                if (catLabel) {
+                    var tag = document.createElement('span');
+                    tag.className = 'quote-category';
+                    tag.textContent = catLabel;
+                    card.appendChild(tag);
+                }
+
+                var text = document.createElement('p');
+                text.className = 'quote-text';
+                text.textContent = p[activeLang] || p.es || p.en;
+                card.appendChild(text);
+
+                list.appendChild(card);
+            }
+        }
+
+        function setLang(lang) {
+            activeLang = (lang === 'es') ? 'es' : 'en';
+            document.documentElement.lang = activeLang;
+
+            if (activeLang === 'es') {
+                document.title = 'DarrMilly — Duelo y fechas especiales';
+                document.getElementById('backLink').textContent = '← Volver al inicio';
+                document.getElementById('pageTitle').textContent = 'Duelo y fechas especiales';
+                document.getElementById('pageSubtitle').textContent = 'Palabras para atravesar los días marcados en el calendario cuando falta alguien a quien amas, sin negar el cariño ni el dolor.';
+                document.getElementById('footerBrand').textContent = 'DarrMilly · Volver a empezar sin borrar lo vivido — Maria Dunn';
+            } else {
+                document.title = 'DarrMilly — Grief & Special Dates';
+                document.getElementById('backLink').textContent = '← Back to home';
+                document.getElementById('pageTitle').textContent = 'Grief & Special Dates';
+                document.getElementById('pageSubtitle').textContent = 'Words for getting through marked dates on the calendar when someone you love is missing, without denying love or grief.';
+                document.getElementById('footerBrand').textContent = 'DarrMilly · Starting again without erasing what was lived — Maria Dunn';
+            }
+
+            document.getElementById('btnEn').classList.toggle('active', activeLang === 'en');
+            document.getElementById('btnEs').classList.toggle('active', activeLang === 'es');
+
+            renderFilters();
+            renderQuotes();
+        }
+
+        renderFilters();
+        renderQuotes();
+    </script>
+</body>
+</html>
