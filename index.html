@@ -134,7 +134,7 @@
 
         .guide-box {
             width: 100%;
-            max-width: 540px;
+            max-width: 560px;
             background-color: rgba(122, 18, 18, 0.04);
             border: 1px solid rgba(122, 18, 18, 0.22);
             border-radius: 14px;
@@ -208,11 +208,39 @@
 
         .guide-feedback {
             width: 100%;
-            font-size: 0.88rem;
-            font-style: italic;
+            font-size: 0.9rem;
             color: #7A1212;
             margin-top: 8px;
             min-height: 1.2em;
+        }
+
+        .guide-delivery-box {
+            display: none;
+            margin-top: 18px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #FFFDF9;
+            border: 1px solid rgba(122, 18, 18, 0.25);
+            text-align: left;
+            color: #4A1111;
+            font-size: 0.95rem;
+        }
+
+        .guide-delivery-box.open {
+            display: block;
+        }
+
+        .guide-delivery-box p {
+            margin-bottom: 10px;
+        }
+
+        .guide-delivery-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .delivery-btn-wrap {
+            text-align: center;
+            margin: 14px 0;
         }
 
         .journeys-section {
@@ -382,6 +410,17 @@
             color: #4A1111;
         }
 
+        .contact-mail {
+            margin-top: 14px;
+            font-size: 0.9rem;
+        }
+
+        .contact-mail a {
+            color: #7A1212;
+            text-decoration: none;
+            border-bottom: 1px solid #C9963B;
+        }
+
         @media (max-width: 720px) {
             .journeys-grid {
                 grid-template-columns: 1fr;
@@ -464,13 +503,28 @@
                     Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.
                 </p>
 
-                <!-- Sustituye action="#" por el enlace de tu formulario o correo (Formspree, Mailchimp, etc.) -->
-                <form class="guide-form" id="guideForm" action="#" method="POST" onsubmit="handleGuideSubmit(event)">
-                    <label for="guideEmail" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
-                    <input type="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
+                <!-- Reemplaza TU_CODIGO_DE_FORMSPREE por el código de tu formulario en Formspree -->
+                <form class="guide-form" id="guideForm" action="https://formspree.io/f/TU_CODIGO_DE_FORMSPREE" method="POST" onsubmit="handleGuideSubmit(event)">
+                    <label for="guideEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Email</label>
+                    <input type="email" name="email" id="guideEmail" class="guide-input" placeholder="you@example.com" required>
+                    <input type="hidden" name="_subject" value="Nuevo registro en DarrMilly — 7 preguntas para volver a empezar">
                     <button type="submit" class="guide-submit" id="guideSubmitBtn">Notify me</button>
                     <p class="guide-feedback" id="guideFeedback"></p>
                 </form>
+
+                <div class="guide-delivery-box" id="guideDeliveryBox" aria-live="polite">
+                    <p id="delGreeting">Hola,</p>
+                    <p id="delThanks">Gracias por estar aquí.</p>
+                    <p id="delP1">A veces la vida cambia de una manera que no esperábamos. Hay momentos en los que necesitamos detenernos, escuchar lo que sentimos y recordar que, aunque algo haya cambiado, nuestro valor sigue estando dentro de nosotros.</p>
+                    <p id="delP2">Por eso quiero compartir contigo <strong>7 preguntas para volver a empezar</strong>, un pequeño cuaderno de reflexión que he creado para acompañarte.</p>
+                    <p id="delP3">No es un reto, no tienes que responder las siete preguntas ni encontrar todas las respuestas hoy. Puedes comenzar por aquella que más resuene contigo, escribir a tu propio ritmo o volver cuando lo necesites.</p>
+                    <p id="delP4">Mi deseo es que estas páginas te regalen un momento para escucharte, reconocer lo que has aprendido y descubrir ese pequeño paso que puedes dar desde donde estás.</p>
+                    <div class="delivery-btn-wrap">
+                        <a href="7-preguntas-para-volver-a-empezar.pdf" download class="guide-cta-btn" id="deliveryDownloadBtn">QUIERO MIS 7 PREGUNTAS</a>
+                    </div>
+                    <p id="delP5">Recuerda: no vuelves a empezar desde cero. Llevas contigo todo lo que has aprendido, incluso aquello que todavía estás intentando comprender.</p>
+                    <p id="delSign">Con cariño,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Volver a empezar sin borrar lo vivido</p>
+                </div>
             </div>
         </section>
 
@@ -540,6 +594,10 @@
             <p class="author-bio" id="authorBio">
                 DarrMilly grows out of a conviction learned along the way: life offers no guarantees and sometimes asks you to rebuild everything, yet no fall leaves you empty-handed. I write these reflections as Maria Dunn to accompany people navigating loss or sudden change with honest words and writing prompts that help release fear and start again with experience.
             </p>
+
+            <p class="contact-mail">
+                <a href="mailto:darrmillyoficial@gmail.com">darrmillyoficial@gmail.com</a>
+            </p>
         </section>
     </main>
 
@@ -554,7 +612,19 @@
                 guideNote: 'Leave your email to receive a short guide with seven reflections and writing prompts for rebuilding. No noise, no magic formulas.',
                 emailPlaceholder: 'you@example.com',
                 guideSubmit: 'Notify me',
-                guideSent: 'Thank you. Connect your form endpoint to deliver “7 Questions to Start Again” automatically.',
+                guideSending: 'Sending...',
+                guideSuccess: 'Your workbook is ready below.',
+                guideError: 'There was a problem submitting. Please try again.',
+                guideConnError: 'Connection error. Please check your connection and try again.',
+                delGreeting: 'Hello,',
+                delThanks: 'Thank you for being here.',
+                delP1: 'Sometimes life changes in a way we didn’t expect. There are moments when we need to pause, listen to what we feel, and remember that even when something has shifted, our worth is still within us.',
+                delP2: 'That is why I want to share <strong>7 Questions to Start Again</strong> with you, a brief reflection workbook I created to keep you company.',
+                delP3: 'It is not a challenge—you do not have to answer all seven questions or find every answer today. You can start with the one that resonates most with you, write at your own pace, or come back whenever you need.',
+                delP4: 'My wish is that these pages give you a moment to listen to yourself, recognize what you have learned, and discover that small step you can take from where you stand.',
+                deliveryDownloadBtn: 'GET MY 7 QUESTIONS',
+                delP5: 'Remember: you never start over from scratch. You carry everything you have learned with you, even what you are still trying to understand.',
+                delSign: 'With warmth,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Starting again without erasing what was lived',
                 journeysHeading: 'Three ways to enter',
                 j1Title: 'Losses & Farewells',
                 j1Tag: 'When the life you knew shifts.',
@@ -580,7 +650,19 @@
                 guideNote: 'Déjame tu correo y te envío una guía breve con siete reflexiones y preguntas de escritura para ordenar lo que sientes cuando toca reconstruir. Sin ruido ni fórmulas mágicas.',
                 emailPlaceholder: 'tu@correo.com',
                 guideSubmit: 'Avísame',
-                guideSent: 'Gracias. Conecta tu enlace de formulario para enviar “7 preguntas para volver a empezar” automáticamente.',
+                guideSending: 'Enviando...',
+                guideSuccess: 'Tu cuaderno está listo aquí abajo.',
+                guideError: 'Hubo un problema al enviar. Intenta de nuevo.',
+                guideConnError: 'Error de conexión. Revisa tu internet e intenta de nuevo.',
+                delGreeting: 'Hola,',
+                delThanks: 'Gracias por estar aquí.',
+                delP1: 'A veces la vida cambia de una manera que no esperábamos. Hay momentos en los que necesitamos detenernos, escuchar lo que sentimos y recordar que, aunque algo haya cambiado, nuestro valor sigue estando dentro de nosotros.',
+                delP2: 'Por eso quiero compartir contigo <strong>7 preguntas para volver a empezar</strong>, un pequeño cuaderno de reflexión que he creado para acompañarte.',
+                delP3: 'No es un reto, no tienes que responder las siete preguntas ni encontrar todas las respuestas hoy. Puedes comenzar por aquella que más resuene contigo, escribir a tu propio ritmo o volver cuando lo necesites.',
+                delP4: 'Mi deseo es que estas páginas te regalen un momento para escucharte, reconocer lo que has aprendido y descubrir ese pequeño paso que puedes dar desde donde estás.',
+                deliveryDownloadBtn: 'QUIERO MIS 7 PREGUNTAS',
+                delP5: 'Recuerda: no vuelves a empezar desde cero. Llevas contigo todo lo que has aprendido, incluso aquello que todavía estás intentando comprender.',
+                delSign: 'Con cariño,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Volver a empezar sin borrar lo vivido',
                 journeysHeading: 'Tres recorridos para comenzar',
                 j1Title: 'Pérdidas y despedidas',
                 j1Tag: 'Para cuando cambia la vida que conocías.',
@@ -609,11 +691,36 @@
             }
         }
 
-        function handleGuideSubmit(event) {
+        async function handleGuideSubmit(event) {
             event.preventDefault();
+            var form = event.target;
             var feedback = document.getElementById('guideFeedback');
-            feedback.textContent = i18n[currentLang].guideSent;
-            document.getElementById('guideEmail').value = '';
+            var submitBtn = document.getElementById('guideSubmitBtn');
+            var deliveryBox = document.getElementById('guideDeliveryBox');
+            var dict = i18n[currentLang];
+
+            submitBtn.disabled = true;
+            feedback.textContent = dict.guideSending;
+
+            try {
+                var response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    feedback.textContent = dict.guideSuccess;
+                    deliveryBox.classList.add('open');
+                    form.reset();
+                } else {
+                    feedback.textContent = dict.guideError;
+                }
+            } catch (error) {
+                feedback.textContent = dict.guideConnError;
+            } finally {
+                submitBtn.disabled = false;
+            }
         }
 
         function cambiarIdioma(lang) {
@@ -630,6 +737,16 @@
             document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
             document.getElementById('guideSubmitBtn').textContent = dict.guideSubmit;
             document.getElementById('guideFeedback').textContent = '';
+
+            document.getElementById('delGreeting').textContent = dict.delGreeting;
+            document.getElementById('delThanks').textContent = dict.delThanks;
+            document.getElementById('delP1').textContent = dict.delP1;
+            document.getElementById('delP2').innerHTML = dict.delP2;
+            document.getElementById('delP3').textContent = dict.delP3;
+            document.getElementById('delP4').textContent = dict.delP4;
+            document.getElementById('deliveryDownloadBtn').textContent = dict.deliveryDownloadBtn;
+            document.getElementById('delP5').textContent = dict.delP5;
+            document.getElementById('delSign').innerHTML = dict.delSign;
 
             document.getElementById('journeysHeading').textContent = dict.journeysHeading;
             document.getElementById('j1Title').textContent = dict.j1Title;
