@@ -313,7 +313,7 @@
 <body>
 
     <header class="wave-banner">
-        <img src="banner-nuevo.png" alt="DarrMilly" class="wave-banner-img">
+        <img src="banner.png" alt="DarrMilly" class="wave-banner-img">
     </header>
 
     <div class="top-controls-bar">
@@ -476,7 +476,7 @@
             } catch (e) {}
 
             var dict = i18n[currentLang];
-            var esEspañol = (lang === 'es');
+            var esEspañol = (currentLang === 'es');
 
             document.documentElement.lang = dict.lang;
             document.title = dict.title;
