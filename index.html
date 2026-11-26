@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
-    <style>
+  <style>
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +25,7 @@
         body {
             background-color: #FAF5F8;
             font-family: 'Lora', serif;
-            color: #4A195A;
+            color: #3F1354;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -62,12 +62,12 @@
 
         .banner-tagline {
             max-width: 780px;
-            color: #C9962B;
+            color: #3F1354;
             font-size: clamp(1.1rem, 2.3vw, 1.65rem);
             font-weight: 500;
             line-height: 1.3;
             text-wrap: balance;
-            text-shadow: 0 1px 6px rgba(255, 255, 255, 0.85);
+            text-shadow: 0 1px 6px rgba(255, 255, 255, 0.9);
         }
 
         .banner-bottom-row {
@@ -85,17 +85,17 @@
             max-width: 24%;
             height: auto;
             display: block;
-            filter: drop-shadow(0 1px 4px rgba(74, 25, 90, 0.2));
+            filter: drop-shadow(0 1px 4px rgba(63, 19, 84, 0.2));
         }
 
         .banner-brand {
             position: absolute;
             right: 8px;
-            color: #4A195A;
+            color: #3F1354;
             font-size: clamp(0.92rem, 1.7vw, 1.2rem);
             font-weight: 500;
             letter-spacing: 2px;
-            text-shadow: 0 1px 6px rgba(255, 255, 255, 0.85);
+            text-shadow: 0 1px 6px rgba(255, 255, 255, 0.9);
         }
 
         .top-controls-bar {
@@ -116,17 +116,18 @@
             font-weight: 600;
             padding: 5px 16px;
             border-radius: 999px;
-            border: 1.5px solid #6E3B82;
-            background-color: transparent;
-            color: #4A195A;
+            border: 1.5px solid #B794CE;
+            background-color: rgba(255, 255, 255, 0.75);
+            color: #3F1354;
             cursor: pointer;
             transition: all 0.15s ease;
         }
 
         .gallery-trigger-btn:hover,
         .gallery-trigger-btn:active {
-            background-color: #6E3B82;
-            color: #FFF9FC;
+            background-color: #E8DDF2;
+            border-color: #C9962B;
+            color: #3F1354;
         }
 
         .lang-bar {
@@ -140,9 +141,9 @@
             font-size: 0.92rem;
             padding: 5px 15px;
             border-radius: 999px;
-            border: 1.5px solid #6E3B82;
-            background-color: transparent;
-            color: #4A195A;
+            border: 1.5px solid #B794CE;
+            background-color: rgba(255, 255, 255, 0.75);
+            color: #3F1354;
             cursor: pointer;
             transition: all 0.15s ease;
         }
@@ -150,8 +151,9 @@
         .lang-btn.active,
         .lang-btn:hover,
         .lang-btn:active {
-            background-color: #6E3B82;
-            color: #FFF9FC;
+            background-color: #E8DDF2;
+            border-color: #C9962B;
+            color: #3F1354;
         }
 
         .main-content {
@@ -203,7 +205,7 @@
             width: 100%;
             max-width: 480px;
             background-color: rgba(183, 148, 206, 0.14);
-            border: 1px solid rgba(110, 59, 130, 0.25);
+            border: 1px solid rgba(183, 148, 206, 0.45);
             border-radius: 14px;
             padding: 14px 18px;
             margin: 0 auto 14px;
@@ -215,25 +217,26 @@
             font-family: 'Lora', serif;
             font-size: 0.95rem;
             font-weight: 600;
-            background-color: #6E3B82;
-            color: #FFF9FC;
+            background-color: #E5D4F2;
+            color: #3F1354;
             text-decoration: none;
             padding: 9px 20px;
             border-radius: 999px;
-            border: 1.5px solid #6E3B82;
+            border: 1.5px solid #C9962B;
             transition: all 0.15s ease;
             cursor: pointer;
         }
 
         .guide-cta-btn:hover,
         .guide-cta-btn:active {
-            background-color: #542966;
-            border-color: #C9962B;
+            background-color: #D7C0EA;
+            border-color: #9E7216;
+            color: #2D0C3D;
         }
 
         .guide-note {
             font-size: 0.88rem;
-            color: #552866;
+            color: #4A195A;
             margin-top: 8px;
             line-height: 1.5;
         }
@@ -255,9 +258,9 @@
             font-size: 0.92rem;
             padding: 8px 14px;
             border-radius: 999px;
-            border: 1.5px solid #6E3B82;
+            border: 1.5px solid #B794CE;
             background-color: #FFFFFF;
-            color: #4A195A;
+            color: #3F1354;
             min-width: 200px;
             flex: 1 1 190px;
             max-width: 270px;
@@ -269,16 +272,23 @@
             font-weight: 600;
             padding: 8px 16px;
             border-radius: 999px;
-            border: 1.5px solid #6E3B82;
-            background-color: #6E3B82;
-            color: #FFF9FC;
+            border: 1.5px solid #C9962B;
+            background-color: #E5D4F2;
+            color: #3F1354;
             cursor: pointer;
+        }
+
+        .guide-submit:hover,
+        .guide-submit:active {
+            background-color: #D7C0EA;
+            border-color: #9E7216;
+            color: #2D0C3D;
         }
 
         .guide-feedback {
             width: 100%;
             font-size: 0.88rem;
-            color: #4A195A;
+            color: #3F1354;
             margin-top: 6px;
             min-height: 1.2em;
         }
@@ -289,7 +299,7 @@
             padding: 18px;
             border-radius: 12px;
             background-color: #FFFFFF;
-            border: 1px solid rgba(110, 59, 130, 0.25);
+            border: 1px solid rgba(183, 148, 206, 0.45);
             text-align: left;
             color: #3A1647;
             font-size: 0.92rem;
@@ -319,7 +329,7 @@
         }
 
         .contact-mail a {
-            color: #4A195A;
+            color: #3F1354;
             text-decoration: none;
             border-bottom: 1px solid #C9962B;
         }
