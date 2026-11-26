@@ -34,12 +34,11 @@
         }
 
         .wave-banner {
-            position: relative;
             width: 100%;
             max-width: 900px;
-            aspect-ratio: 900 / 260;
+            aspect-ratio: 1140 / 320;
             background-image: url("banner..png");
-            background-size: 100% 100%;
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -311,7 +310,7 @@
 </head>
 <body>
 
-    <header class="wave-banner" aria-label="DarrMilly — Calma en el caos, un refugio para el alma"></header>
+    <header class="wave-banner" aria-label="DarrMilly"></header>
 
     <div class="top-controls-bar">
         <a href="gallery.html" id="galleryTriggerBtn" class="gallery-trigger-btn">Gallery</a>
@@ -409,4 +408,111 @@
                 emailPlaceholder: 'tu@correo.com',
                 guideSubmit: 'Envíame la guía',
                 guideSending: 'Enviando...',
-                guideSuccess
+                guideSuccess: 'Tu cuaderno está listo aquí abajo.',
+                guideError: 'Hubo un problema al enviar. Intenta de nuevo.',
+                guideConnError: 'Error de conexión. Revisa tu internet e intenta de nuevo.',
+                delGreeting: 'Hola,',
+                delThanks: 'Gracias por estar aquí.',
+                delP1: 'A veces la vida cambia de una manera que no esperábamos. Hay momentos en los que necesitamos detenernos, escuchar lo que sentimos y recordar que, aunque algo haya cambiado, nuestro valor sigue estando dentro de nosotros.',
+                delP2: 'Por eso quiero compartir contigo <strong>7 preguntas para volver a empezar</strong>, un pequeño cuaderno de reflexión que he creado para acompañarte.',
+                delP3: 'No es un reto, no tienes que responder las siete preguntas ni encontrar todas las respuestas hoy. Puedes comenzar por aquella que más resuene contigo, escribir a tu propio ritmo o volver cuando lo necesites.',
+                delP4: 'Mi deseo es que estas páginas te regalen un momento para escucharte, reconocer lo que has aprendido y descubrir ese pequeño paso que puedes dar desde donde estás.',
+                deliveryDownloadBtn: 'QUIERO MIS 7 PREGUNTAS',
+                delP5: 'Recuerda: no vuelves a empezar desde cero. Llevas contigo todo lo que has aprendido, incluso aquello que todavía estás intentando comprender.',
+                delSign: 'Con cariño,<br><br><strong>Maria Dunn</strong><br>DarrMilly · Volver a empezar sin borrar lo vivido'
+            }
+        };
+
+        var currentLang = 'en';
+
+        function toggleGuideForm() {
+            var form = document.getElementById('guideForm');
+            form.classList.toggle('open');
+            if (form.classList.contains('open')) {
+                document.getElementById('guideEmail').focus();
+            }
+        }
+
+        async function handleGuideSubmit(event) {
+            event.preventDefault();
+            var form = event.target;
+            var feedback = document.getElementById('guideFeedback');
+            var submitBtn = document.getElementById('guideSubmitBtn');
+            var deliveryBox = document.getElementById('guideDeliveryBox');
+            var dict = i18n[currentLang];
+
+            submitBtn.disabled = true;
+            feedback.textContent = dict.guideSending;
+
+            try {
+                var response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    feedback.textContent = dict.guideSuccess;
+                    deliveryBox.classList.add('open');
+                    form.reset();
+                } else {
+                    feedback.textContent = dict.guideError;
+                }
+            } catch (error) {
+                feedback.textContent = dict.guideConnError;
+            } finally {
+                submitBtn.disabled = false;
+            }
+        }
+
+        function cambiarIdioma(lang) {
+            currentLang = (lang === 'es') ? 'es' : 'en';
+            try {
+                localStorage.setItem('darrmilly_lang', currentLang);
+            } catch (e) {}
+
+            var dict = i18n[currentLang];
+            var esEspañol = (currentLang === 'es');
+
+            document.documentElement.lang = dict.lang;
+            document.title = dict.title;
+            document.getElementById('galleryTriggerBtn').textContent = dict.galleryTrigger;
+
+            var illustration = document.getElementById('mainIllustration');
+            if (illustration) {
+                illustration.alt = dict.mainIllustrationAlt;
+            }
+
+            document.getElementById('essenceText').textContent = dict.essenceText;
+            document.getElementById('essenceSignature').textContent = dict.essenceSignature;
+
+            document.getElementById('guideCtaBtn').textContent = dict.guideCta;
+            document.getElementById('guideNote').textContent = dict.guideNote;
+            document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
+            document.getElementById('guideSubmitBtn').textContent = dict.guideSubmit;
+            document.getElementById('guideFeedback').textContent = '';
+
+            document.getElementById('delGreeting').textContent = dict.delGreeting;
+            document.getElementById('delThanks').textContent = dict.delThanks;
+            document.getElementById('delP1').textContent = dict.delP1;
+            document.getElementById('delP2').innerHTML = dict.delP2;
+            document.getElementById('delP3').textContent = dict.delP3;
+            document.getElementById('delP4').textContent = dict.delP4;
+            document.getElementById('deliveryDownloadBtn').textContent = dict.deliveryDownloadBtn;
+            document.getElementById('delP5').textContent = dict.delP5;
+            document.getElementById('delSign').innerHTML = dict.delSign;
+
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
+        }
+
+        (function initLang() {
+            var savedLang = 'en';
+            try {
+                savedLang = localStorage.getItem('darrmilly_lang') || 'en';
+            } catch (e) {}
+            cambiarIdioma(savedLang);
+        })();
+    </script>
+</body>
+</html>
