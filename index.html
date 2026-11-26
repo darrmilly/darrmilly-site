@@ -88,7 +88,7 @@
             height: auto;
             display: block;
             filter: none;
-            transform: translate(185px, 195px);
+            transform: translate(185px, 65px);
         }
 
         .banner-brand {
@@ -361,7 +361,7 @@
 
             .banner-logo {
                 width: 72px;
-                transform: translate(55px, 145px);
+                transform: translate(65px, 45px);
             }
 
             .top-controls-bar {
@@ -560,4 +560,54 @@
         }
 
         function cambiarIdioma(lang) {
-            currentLang = (lang === 'es') ?
+            currentLang = (lang === 'es') ? 'es' : 'en';
+            try {
+                localStorage.setItem('darrmilly_lang', currentLang);
+            } catch (e) {}
+
+            var dict = i18n[currentLang];
+            var esEspañol = (currentLang === 'es');
+
+            document.documentElement.lang = dict.lang;
+            document.title = dict.title;
+            document.getElementById('bannerTagline').textContent = dict.bannerTagline;
+            document.getElementById('galleryTriggerBtn').textContent = dict.galleryTrigger;
+
+            var illustration = document.getElementById('mainIllustration');
+            if (illustration) {
+                illustration.alt = dict.mainIllustrationAlt;
+            }
+
+            document.getElementById('essenceText').textContent = dict.essenceText;
+            document.getElementById('essenceSignature').textContent = dict.essenceSignature;
+
+            document.getElementById('guideCtaBtn').textContent = dict.guideCta;
+            document.getElementById('guideNote').textContent = dict.guideNote;
+            document.getElementById('guideEmail').placeholder = dict.emailPlaceholder;
+            document.getElementById('guideSubmitBtn').textContent = dict.guideSubmit;
+            document.getElementById('guideFeedback').textContent = '';
+
+            document.getElementById('delGreeting').textContent = dict.delGreeting;
+            document.getElementById('delThanks').textContent = dict.delThanks;
+            document.getElementById('delP1').textContent = dict.delP1;
+            document.getElementById('delP2').innerHTML = dict.delP2;
+            document.getElementById('delP3').textContent = dict.delP3;
+            document.getElementById('delP4').textContent = dict.delP4;
+            document.getElementById('deliveryDownloadBtn').textContent = dict.deliveryDownloadBtn;
+            document.getElementById('delP5').textContent = dict.delP5;
+            document.getElementById('delSign').innerHTML = dict.delSign;
+
+            document.getElementById('btnEn').classList.toggle('active', !esEspañol);
+            document.getElementById('btnEs').classList.toggle('active', esEspañol);
+        }
+
+        (function initLang() {
+            var savedLang = 'en';
+            try {
+                savedLang = localStorage.getItem('darrmilly_lang') || 'en';
+            } catch (e) {}
+            cambiarIdioma(savedLang);
+        })();
+    </script>
+</body>
+</html>
