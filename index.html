@@ -31,16 +31,18 @@
             align-items: center;
             min-height: 100vh;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .wave-banner {
             width: 100%;
             max-width: 900px;
-            aspect-ratio: 1140 / 320;
-            background-image: url("banner..png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        }
+
+        .wave-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .top-controls-bar {
@@ -310,7 +312,9 @@
 </head>
 <body>
 
-    <header class="wave-banner" aria-label="DarrMilly"></header>
+    <header class="wave-banner">
+        <img src="banner-nuevo.png" alt="DarrMilly" class="wave-banner-img">
+    </header>
 
     <div class="top-controls-bar">
         <a href="gallery.html" id="galleryTriggerBtn" class="gallery-trigger-btn">Gallery</a>
@@ -472,7 +476,7 @@
             } catch (e) {}
 
             var dict = i18n[currentLang];
-            var esEspañol = (currentLang === 'es');
+            var esEspañol = (lang === 'es');
 
             document.documentElement.lang = dict.lang;
             document.title = dict.title;
